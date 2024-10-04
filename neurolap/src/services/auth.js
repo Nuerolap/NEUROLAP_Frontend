@@ -12,10 +12,10 @@ export const signup = (email, password, nombre, nivelDeUsuario) => {
   });
 };
 
-// Función para iniciar sesión
 export const login = (email, password) => {
-  return axios.post(`${API_URL}/login`, {
-    username: email,  
-    password: password
-  });
+  const formData = new FormData();
+  formData.append('username', email);  // FastAPI espera "username" en lugar de "email"
+  formData.append('password', password);
+
+  return axios.post(`${API_URL}/login`, formData);
 };
