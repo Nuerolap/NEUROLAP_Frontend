@@ -1,10 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/Home.vue';
+import AboutPage from '../components/AboutPage.vue';
+import ServicePage from '../components/ServicePage.vue';
+import InvestigationPage from '../components/InvestigationPage.vue';
+import HelpPage from '../components/HelpPage.vue';
+import ContactPage from '../components/ContactPage.vue';
 import LoginForm from '../components/LoginForm.vue';
 import SignupForm from '../components/SignupForm.vue';
 
 const routes = [
-  { path: '/', component: HomePage, meta: { requiresAuth: true } },  // Página protegida
+  { path: '/', component: HomePage /*meta: { requiresAuth: true }*/ },  // Página protegida
+  { path: '/about', component: AboutPage },
+  { path: '/service', component: ServicePage },
+  { path: '/investigation', component: InvestigationPage },
+  { path: '/help', component: HelpPage },
+  { path: '/contact', component: ContactPage },
   { path: '/login', component: LoginForm },
   { path: '/signup', component: SignupForm }
 ];
