@@ -48,43 +48,54 @@ export default {
 
 <style scoped>
 .login-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 50%;
+  margin: 4vw auto;
+  padding: 3vw 5vw;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter';
+}
+
+
+.login-container h2 {
+  font-size: 5vw;
+  color: #800000;
 }
 
 .form-group {
-  margin-bottom: 15px;
+  margin: 2vw 0;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 3vw;
   font-weight: bold;
+  font-size: 2.5vw;
 }
 
 input {
   width: 100%;
-  padding: 8px;
+  padding: 1vw;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .btn {
   width: 100%;
-  padding: 10px;
-  background-color: #42b983;
+  padding: 2vh;
+  background-color: #8D323E;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 2.5vw;
 }
 
 .btn:hover {
-  background-color: #369e6f;
+  background-color: #AB8A8E;
+  color: #8D323E;
+  font-weight: bold;
 }
 
 .error-message {

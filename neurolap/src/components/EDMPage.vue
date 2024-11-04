@@ -1,7 +1,7 @@
 <template>
-  <div class="other-window">
+  <div class="edm">
     <div class="header">
-      <h1>TÍTULO DE LA VENTANA</h1>
+      <h1>EVALUACIÓN DIFERENCIAL DE LA MEMORIA (PROTOCOLO EDM)</h1>
     </div>
     <div class="underline"></div>
     <div class="content">
@@ -55,13 +55,13 @@
 
 <script>
 export default {
-  name: 'OtherWindowPage',
+  name: 'EDMPage',
 }
 </script>
 
 <style scoped>
 /* General Styles */
-.other-window {
+.edm {
   margin-top: 7vh;
   margin-bottom: 5vh;
   padding: 0;

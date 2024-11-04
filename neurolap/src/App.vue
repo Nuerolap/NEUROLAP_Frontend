@@ -10,15 +10,15 @@
           <li><router-link to="/investigation">Investigación</router-link></li>
           <li><router-link to="/help">¿Necesitas ayuda?</router-link></li>
           <li><router-link to="/contact">Contáctanos</router-link></li>
-          <li><router-link to="/login">Login</router-link></li>
-          <li><router-link to="/signup">Signup</router-link></li>
+          <li><router-link to="/login" class="button">Iniciar</router-link></li>
+          <li><router-link to="/signup" class="button">Registrate</router-link></li>
         </ul>
       </nav>
     </header>
     <router-view></router-view>
     <footer class="footer">
       <div class="footer-content">
-        <p>© 2021 Landify UI Kit. All rights reserved</p>
+        <p>© 2024 NEUROLAP. Todos los derechos reservados.</p>
         <div class="social-icons">
           <a href="https://www.instagram.com" target="_blank">
             <i class="fab fa-instagram"></i>
@@ -67,7 +67,7 @@ html, body {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 10vh; /* Ajusta la altura de la barra de navegación */
+  height: 6vw; /* Ajusta la altura de la barra de navegación */
   padding: 0;
   margin: 0;
   position: relative;
@@ -78,13 +78,13 @@ html, body {
 
 .logo {
   height: auto;
-  max-height: 8vh;
-  margin-left: 1rem;
+  max-height: 6vw;
 }
 
 nav {
   flex-grow: 1;
-  background: linear-gradient(90deg, #5E2129 18%, #C44555 91.5%);
+  background: #98002E;
+  height: 8vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -111,11 +111,25 @@ nav a {
   font-family: 'Inter';
   font-style: normal;
   font-weight: normal;
-  font-size: 1.5vw; /* Tamaño de fuente ajustado */
+  font-size: 1.6vw; /* Tamaño de fuente ajustado */
 }
 
 nav a:hover {
   color: #AB8A8E;
+}
+
+nav a.button {
+  background-color: white;
+  color: #98002E;
+  border-radius: 15px;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  font-size: 1.5vw;
+}
+
+nav a.button:hover {
+  background-color: #AB8A8E;
+  color: white;
 }
 
 .router-view {
@@ -126,7 +140,7 @@ nav a:hover {
 .footer {
   background-color: #000000;
   color: #FFFFFF;
-  padding: 1.5em 0;
+  padding: 2vh 0;
   font-family: 'Inter', sans-serif;
 }
 
@@ -135,13 +149,12 @@ nav a:hover {
   justify-content: space-between;
   align-items: center;
   max-width: 100%;
-  margin: 0 auto;
-  padding: 0 1em;
+  padding: 0 2vw;
 }
 
 .footer p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 2vw;
 }
 
 .social-icons {
@@ -151,7 +164,7 @@ nav a:hover {
 
 .social-icons a {
   color: #FFFFFF;
-  font-size: 1.2rem;
+  font-size: 2vw;
 }
 
 .social-icons a:hover {

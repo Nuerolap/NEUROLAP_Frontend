@@ -7,6 +7,8 @@ import HelpPage from '../components/HelpPage.vue';
 import ContactPage from '../components/ContactPage.vue';
 import LoginForm from '../components/LoginForm.vue';
 import SignupForm from '../components/SignupForm.vue';
+import EvaluationPage from '../components/EvaluationPage.vue';
+import EDMPage from '../components/EDMPage.vue';
 
 const routes = [
   { path: '/', component: HomePage /*meta: { requiresAuth: true }*/ },  // Página protegida
@@ -16,7 +18,9 @@ const routes = [
   { path: '/help', component: HelpPage },
   { path: '/contact', component: ContactPage },
   { path: '/login', component: LoginForm },
-  { path: '/signup', component: SignupForm }
+  { path: '/signup', component: SignupForm },
+  { path: '/evaluation', component: EvaluationPage },
+  { path: '/edm', component: EDMPage }
 ];
 
 const router = createRouter({

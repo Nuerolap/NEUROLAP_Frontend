@@ -15,7 +15,7 @@
       <div class="service-card1">
         <img src="@/assets/info-icon.png" alt="Evaluación neuropsicológica de la memoria">
         <h2>EVALUACIÓN NEUROPSICOLÓGICA DE LA MEMORIA</h2>
-        <a href="#" class="learn-more">Saber más...</a>
+        <a href="/evaluation" class="learn-more">Saber más...</a>
       </div>
       <div class="service-card1">
         <img src="@/assets/info-icon.png" alt="Reporte clínico de la evaluación">
@@ -34,8 +34,10 @@
       </div>
     </div>
     <div class="evaluation-section">
-      <h2>EVALUACIÓN DIFERENCIAL DE LA MEMORIA (PROTOCOL EDM)</h2>
-      <button href="#" class="start-button">Iniciar</button>
+      <h2>EVALUACIÓN DIFERENCIAL DE LA MEMORIA </h2>
+      <div class="button-container">
+        <router-link to="/edm" class="button">Iniciar</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -59,7 +61,7 @@ export default {
   border-radius: 15px 0 0 0; /* Bordes redondeados */
   width: 50%;
   height: 6vh; /* Altura del rectángulo */
-  margin: 0 0 0 auto; /* Centra el rectángulo horizontalmente */
+  margin: 0 0 0 auto; 
   margin-bottom: 0; /* Ajusta el margen inferior para que se superponga ligeramente */
 }
 
@@ -100,7 +102,7 @@ text-transform: capitalize;
   border-radius: 0 0 15px 0; /* Bordes redondeados */
   width: 50%;
   height: 6vh; /* Altura del rectángulo */
-  margin: auto 0 0 0; /* Centra el rectángulo horizontalmente */
+  margin: auto 0 0 0; 
   margin-bottom: 0; /* Ajusta el margen inferior para que se superponga ligeramente */
 }
 
@@ -158,37 +160,43 @@ text-transform: capitalize;
 }
 
 .evaluation-section {
-  margin-top: 40px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .evaluation-section h2 {
   font-family: 'Inter';
-  font-style: normal;
   font-weight: bold;
   font-size: normal;
   line-height: 111%;
   text-align: center;
   margin-bottom: 2%;
   color: #000000;
-
   flex: none;
-  order: 0;
-  flex-grow: 0;
-  z-index: 0;
 }
 
-.start-button {
+.button-container {
+  text-align: center;
+}
+
+.button {
+  text-decoration: none;
   background-color: #8D323E;
-  padding: 10px 20px;
+  padding: 1% 3%;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
-
   font-family: 'Inter';
   font-style: normal;
-  font-weight: normal;
-  font-size: normal;
+  font-weight: bold;
+  font-size: 2vw;
   color: white;
-  font-feature-settings: 'liga' off;
+  cursor: pointer;
 }
+
+.button:hover {
+  background-color: #AB8A8E;
+  color: #8D323E;
+  font-weight: bold;
+}
+
 </style>

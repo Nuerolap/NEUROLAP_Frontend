@@ -1,194 +1,214 @@
 <template>
-  <div class="services">
+  <div class="home">
     <div class="rectangle1"></div> 
-    <div class="service-image">
-      <img src="@/assets/service-image.png" alt="Personas mayores haciendo actividades">
-      <h1>¿QUÉ SERVICIOS PRESTAMOS?</h1>
+    <div class="welcome-section">
+      <div class="text">
+        <h1>Bienvenidos a Neurolap</h1>
+        <p>Este es un portal destinado a la detección de alteraciones en el funcionamiento de la memoria de las Personas Adultas Mayores (PAM). Usted tendrá, en este portal, acceso a un instrumento denominado Evaluación Diferencial de la memoria (EDM) que brindará a su paciente, a su familia y a usted la posibilidad de identificar el estado de las habilidades cognitivas que derivan del uso cotidiano de las memorias.</p>
+      </div>
+      <div class="image">
+        <img src="@/assets/home-image.png" alt="Bienvenida Neurolap">
+      </div>
     </div>
     <div class="rectangle2"></div> 
-    <div id="service-content1">
-      <div class="service-card1">
-        <img src="@/assets/info-icon.png" alt="Información sobre alteraciones de la memoria">
-        <h2>INFORMACIÓN SOBRE ALTERACIONES DE LA MEMORIA</h2>
-        <a href="#" class="learn-more">Saber más...</a>
+
+    <div class="history-section">
+      <div class="history-header">
+        <div class="line"></div>
+        <div class="text-header">
+          <h2>Historia</h2>
+        </div>
       </div>
-      <div class="service-card1">
-        <img src="@/assets/info-icon.png" alt="Evaluación neuropsicológica de la memoria">
-        <h2>EVALUACIÓN NEUROPSICOLÓGICA DE LA MEMORIA</h2>
-        <a href="#" class="learn-more">Saber más...</a>
-      </div>
-      <div class="service-card1">
-        <img src="@/assets/info-icon.png" alt="Reporte clínico de la evaluación">
-        <h2>REPORTE CLÍNICO DE LA EVALUACIÓN</h2>
-        <a href="#" class="learn-more">Saber más...</a>
-      </div>
-      <div class="service-card1">
-        <img src="@/assets/info-icon.png" alt="Estimulación neurocognitiva">
-        <h2>ESTIMULACIÓN NEUROCOGNITIVA</h2>
-        <a href="#" class="learn-more">Saber más...</a>
-      </div>
-      <div class="service-card1">
-        <img src="@/assets/info-icon.png" alt="Capacitación en cuidados">
-        <h2>CAPACITACIÓN EN CUIDADOS</h2>
-        <a href="#" class="learn-more">Saber más...</a>
+
+      <div class="history-content">
+        <div class="history-image">
+          <img src="@/assets/rene-calderon-soria.png" alt="René Calderón Soria">
+        </div>
+        <div class="history-text">
+          <p>Esbozar la historia de la neuropsicología en Bolivia, nos obliga a reconocer, en primer lugar, a René Calderón Soria como el pionero de esta disciplina.</p>
+          <p>Bolivia es sin duda alguna un territorio de enormes riquezas naturales y grandes necesidades de atención a una población heterogénea que en este siglo veintiuno demanda oportunidades y ofrece un sin número de posibilidades de estudio, investigación, innovación e intervención Neuropsicológica.</p>
+          <p>La Sociedad Boliviana de Neuropsicología se funda en la ciudad de La Paz, el 15 de octubre de 1995, como consecuencia de reuniones preliminares de organización desde 1993, a la cabeza del Dr. René Calderón Soria, un connotado hombre de ciencia, fundador del primer Instituto Nacional de Desarrollo Infantil en la década de los 60, de la primera carrera de Psicología, en la Universidad Católica Boliviana por la década de los 70 y finalmente fundador de la carrera de Psicología, de la Universidad Mayor de San Andrés en la década de los 80.</p>
+          <p>Las primeras generaciones de psicólogos bolivianos formados en Bolivia recibieron de él las primeras clases de Neuropsicología, seguidas por la cátedra de la Dra. Margareth Hurtado y el Dr. Juan Carlos Durán.</p>
+          <p>Desde su fundación en 1995 hasta la fecha las actividades académicas de la Sociedad Boliviana de Neuropsicología (SNpB) han permitido la visita de importantes neuropsicólogos extranjeros.</p>
+          <p>Todas las actividades de la SNpB han tenido como escenario la ciudad de La Paz pero el reto es la cobertura nacional que nos permita organizar las filiales departamentales. La primera filial creada ha sido la de Santa Cruz de la Sierra en Julio de 2012.</p>
+          <p>A la fecha la SNpB es la única institución de carácter científico para la agrupación de profesionales del área neuropsicológica.</p>
+          <p>El NEUROLAP "René Calderón Soria" es el Primer Laboratorio de Neurocognición en Bolivia y debe su nombre al pionero de la Neuropsicología en nuestro país en reconocimiento a su trayectoria e impulso profesional.</p>
+          <p>El NEUROLAP se funda en la Universidad Privada de Santa Cruz (UPSA) con el patrocinio de Grand Challenges Canada, Help Age International y Fundación Horizontes, bajo el proyecto “No te olvides de mí” a partir de septiembre de 2014.</p>
+        </div>
       </div>
     </div>
-    <div class="evaluation-section">
-      <h2>EVALUACIÓN DIFERENCIAL DE LA MEMORIA (PROTOCOL EDM)</h2>
-      <button href="#" class="start-button">Iniciar</button>
+
+    <div class="vision-section">
+      <h2>Visión</h2>
+      <p>El NEUROLAP "René Calderón Soria" busca ser el Laboratorio de Neurocognición referencial en Bolivia, para el desarrollo de procedimientos de detección de alteraciones cognitivas y el diseño de procedimientos para la atención y rehabilitación de las mismas.</p>
     </div>
+    <div class="mission-section">
+      <h2>Misión</h2>
+      <p>La misión del NEUROLAP "René Calderón Soria" es la atención de las necesidades de evaluación y rehabilitación neurocognitiva de personas con alteraciones en este campo, a través de procedimientos de detección y programas de estimulación.</p>
+    </div>
+    <div class="objectives-section">
+      <h2>Objetivos</h2>
+      <p>Prestar servicios de evaluación médica y estimulación neurocognitiva a personas adultas mayores de áreas urbanas y rurales de Bolivia, bajo niveles óptimos de eficiencia y calidad.</p>
+    </div>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ServicePage',
+  name: 'HomePage',
 }
 </script>
 
 <style scoped>
-.services {
-  text-align: center;
+.home {
   padding: 0;
-  position: relative;
 }
 
 .rectangle1 {
-  background-color: #974844;
-  opacity: 0.8;
-  border-radius: 15px 0 0 0; /* Bordes redondeados */
-  width: 50%;
-  height: 6vh; /* Altura del rectángulo */
-  margin: 0 0 0 auto; /* Centra el rectángulo horizontalmente */
-  margin-bottom: 0; /* Ajusta el margen inferior para que se superponga ligeramente */
-}
-
-.service-image {
   position: relative;
+  background-color: #EED3BE;
+  opacity: 0.8;
+  border-radius: 0 0 0 15px; /* Bordes redondeados */
+  width: 80%;
+  height: 5vh; /* Altura del rectángulo */
+  margin: 0 0 0 auto; 
+  z-index: 1;
 }
 
-.service-image img {
+.welcome-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3vw;
+}
+
+.text {
+  margin-top: 7vh;
+  margin-left: 7vh;
+  flex: 1.5;
+}
+
+.text h1{
+  font-family: 'Inter', sans-serif;
+  font-size: 5vw;
+  color: #98002E;
+  margin: 0;
+  margin-right: 10vh;
+}
+
+.text p{  
+  margin-top: 5vh;
+  text-align: justify;
+  font-family: 'Maiandra GD';
+  font-size: 1.8vw;
+  color: #333;
+}
+
+.image {
+  flex: 1;
+}
+
+.image img {
   width: 100%;
   height: auto;
   display: block;
-}
+  margin: 0 0 0 auto; 
 
-.service-image h1 {
-position: absolute;
-width: 60%;
-height: auto;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-padding: 1%;
-background: #FFFFFF;
-opacity: 0.8;
-
-width: 60%;
-height: auto;
-font-family: 'Maiandra GD';
-font-style: normal;
-font-weight: bold;
-font-size: 4vw;
-text-align: center;
-text-transform: capitalize;
 }
 
 .rectangle2 {
-  background-color: #EED3BE;
+  background-color: #974844;
   opacity: 0.8;
-  border-radius: 0 0 15px 0; /* Bordes redondeados */
-  width: 50%;
-  height: 6vh; /* Altura del rectángulo */
-  margin: auto 0 0 0; /* Centra el rectángulo horizontalmente */
+  border-radius: 0 15px 0 0; /* Bordes redondeados */
+  width: 30%;
+  height: 5vh; /* Altura del rectángulo */
+  margin: auto 0 0 0; 
   margin-bottom: 0; /* Ajusta el margen inferior para que se superponga ligeramente */
 }
 
-#service-content1 {
-  display: flex;                  /* Usamos flexbox para disposición de los elementos */
-  flex-direction: row;           /* Dirección de la fila */
-  flex-wrap: wrap;               /* Permitir que los elementos se envuelvan a la siguiente fila */
-  justify-content: center;       /* Centra los elementos en la fila */
-  overflow-x: auto; 
-  padding: 1%;
-  height: auto; 
-}
-
-.service-card1 {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 18%;
-  height: 40%; 
-  padding: 0.5%;
-  margin: 0.5%;
+.history-section {
+  margin-left: 7vh;
+  margin-right: 4vh;
   text-align: center;
-  position: relative;
-  flex-direction: column; /* Aseguramos que el contenido esté en columna */
-  align-items: center;
-  overflow: hidden; /* Oculta cualquier contenido que exceda la altura del card */
 }
 
-.service-card1 img {
-  width: 40%;
-  height: 40%;
-  margin: 0 auto; /* Centra la imagen horizontalmente */
-  display: block; /* Asegúrate de que la imagen se comporte como un bloque */
+.history-header {
+  display: flex;
+  align-items: center; /* Cambiado de flex-start a center para centrar verticalmente */
+  justify-content: center;
+  gap: 3vw;
 }
 
-.service-card1 h2 {
-  margin-top: 1%; /* Ajusta el margen superior según sea necesario */
-  margin: 0 auto; /* Centra la imagen horizontalmente */
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.5vw;
+.line {
+  flex: 3;
+  margin-top: 7vh; 
+  width: 41%;
+  height: 1ex;
+  background-color: #b27270;
+}
+
+.text-header {
+  margin-top: 7vh;
+  margin-right: 7vh; /* Cambiado de margin-left a margin-right */
+  flex: 1;
+}
+
+.text-header h2 {
+  color: #800000;
+  font-family: 'Maiandra GD';
+  font-size: 4vw;
+  margin: 0 auto 0 auto;
+}
+
+.history-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2vw;
+}
+
+.history-image {
+  flex: 1;
+}
+
+.history-image img {
+  width: 100%;
+  height: auto;
+  margin-left: -7vh;
+}
+
+.history-text {
+  flex: 1.5;
+  text-align: justify;
+  font-family: 'Maiandra GD';
+  font-size: 1.8vw;
+  color: #333;
+}
+
+.history-text p {
+  margin: 10px 0;
+}
+
+.vision-section, .mission-section, .objectives-section {
+  margin-left: 7vh;
+  margin-right: 4vh;
   text-align: center;
-  color: #1E1D4C;
 }
 
-.learn-more {
-  margin-top: auto; /* Mueve el enlace a la parte inferior del card */
-  margin: 0 auto; /* Centra la imagen horizontalmente */
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.2vw;
-  color: #5E6282;
+.vision-section h2, .mission-section h2, .objectives-section h2 {
+  color: #800000;
+  font-family: 'Maiandra GD';
+  font-size: 4vw;
+  margin-bottom: 20px;
 }
 
-.evaluation-section {
-  margin-top: 40px;
+.vision-section p, .mission-section p, .objectives-section p {
+  font-family: 'Maiandra GD';
+  font-size: 1.8vw;
+  color: #333;
+  text-align: justify;
 }
 
-.evaluation-section h2 {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: normal;
-  line-height: 111%;
-  text-align: center;
-  margin-bottom: 2%;
-  color: #000000;
 
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  z-index: 0;
-}
-
-.start-button {
-  background-color: #8D323E;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: normal;
-  font-size: normal;
-  color: white;
-  font-feature-settings: 'liga' off;
-}
 </style>
