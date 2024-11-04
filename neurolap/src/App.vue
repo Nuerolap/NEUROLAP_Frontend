@@ -95,7 +95,6 @@ nav {
 nav ul {
   list-style: none;
   padding: 0;
-  margin: 0;
   display: flex;
   justify-content: space-around; 
   width: 100%;
@@ -112,6 +111,7 @@ nav a {
   font-style: normal;
   font-weight: normal;
   font-size: 1.6vw; /* Tamaño de fuente ajustado */
+  line-height: 6vw;
 }
 
 nav a:hover {
