@@ -9,6 +9,7 @@ import LoginForm from '../components/LoginForm.vue';
 import SignupForm from '../components/SignupForm.vue';
 import EvaluationPage from '../components/EvaluationPage.vue';
 import EDMPage from '../components/EDMPage.vue';
+import RegistrationPage from '../components/RegistrationPage.vue';
 
 const routes = [
   { path: '/', component: HomePage /*meta: { requiresAuth: true }*/ },  // Página protegida
@@ -20,7 +21,8 @@ const routes = [
   { path: '/login', component: LoginForm },
   { path: '/signup', component: SignupForm },
   { path: '/evaluation', component: EvaluationPage },
-  { path: '/edm', component: EDMPage }
+  { path: '/edm', component: EDMPage },
+  { path: '/registration', component: RegistrationPage }
 ];
 
 const router = createRouter({

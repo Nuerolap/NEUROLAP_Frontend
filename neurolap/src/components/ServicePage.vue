@@ -37,7 +37,7 @@
     <div class="evaluation-section">
       <h2>EVALUACIÓN DIFERENCIAL DE LA MEMORIA </h2>
       <div class="button-container">
-        <router-link to="/edm" class="button">Iniciar</router-link>
+        <router-link to="/registration" class="button">Iniciar</router-link>
       </div>
     </div>
   </div>
@@ -67,19 +67,19 @@ export default {
 }
 
 .header {
-  margin: 3vw 7vh 0 7vh;
+  margin: 3vw 7vh 0 auto;
 }
 
 .header h1 {
   font-family: 'Inter', sans-serif;
-  font-size: 5vw;
+  font-size: 4vw;
   color: #98002E;
   margin: 0;
-  margin-right: 10vh;
+  margin-left: 5vw;
 }
 
 .underline {
-  margin: 3vh 7vh 3vh 7vh;
+  margin: 3vh 0 3vh 5vw;
   width: 41%;
   height: 1ex;
   background-color: #FDB714;
@@ -120,7 +120,7 @@ export default {
 
 .service-card1 h2 {
   margin-top: 1vw; /* Ajusta el margen superior según sea necesario */
-  margin: 1.5vw auto 0 auto; /* Centra la imagen horizontalmente */
+  margin: 1.5vw auto 1.5vw auto; /* Centra la imagen horizontalmente */
   font-family: 'Inter';
   font-style: normal;
   font-weight: bold;

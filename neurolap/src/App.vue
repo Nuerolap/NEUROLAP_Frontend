@@ -142,6 +142,7 @@ nav a.button:hover {
   color: #FFFFFF;
   padding: 2vh 0;
   font-family: 'Inter', sans-serif;
+  margin-top: auto; 
 }
 
 .footer-content {
@@ -154,7 +155,7 @@ nav a.button:hover {
 
 .footer p {
   margin: 0;
-  font-size: 2vw;
+  font-size: 1.5vw;
 }
 
 .social-icons {
