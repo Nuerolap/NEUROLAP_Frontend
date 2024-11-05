@@ -50,7 +50,7 @@ export default {
 .signup-container {
   max-width: 50%;
   margin: 4vw auto;
-  padding: 3vw 5vw;
+  padding: 1vw 5vw;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -68,7 +68,7 @@ export default {
 
 label {
   display: block;
-  margin-bottom: 3vw;
+  margin-bottom: 1vw;
   font-weight: bold;
   font-size: 2.5vw;
 }
@@ -89,6 +89,7 @@ input {
   border-radius: 5px;
   cursor: pointer;
   font-size: 2.5vw;
+  margin-top: 2vw;
 }
 
 .btn:hover {

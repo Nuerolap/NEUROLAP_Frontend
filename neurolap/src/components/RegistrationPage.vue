@@ -51,11 +51,11 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="telefono1">Teléfono de Contacto 1</label>
+                <label for="telefono1">Teléfono 1</label>
                 <input v-model="telefono1" type="tel" id="telefono1" required />
               </div>
               <div class="form-group">
-                <label for="telefono2">Teléfono de Contacto 2</label>
+                <label for="telefono2">Teléfono 2 (Opcional)</label>
                 <input v-model="telefono2" type="tel" id="telefono2" />
               </div>
             </div>
@@ -99,9 +99,16 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
-      // Aquí puedes manejar el envío del formulario
-      console.log('Formulario enviado');
+    async handleSubmit() {
+      try {
+        // Aquí podrías añadir la lógica para enviar los datos a tu servidor
+        console.log('Formulario enviado');
+        
+        // Suponiendo que los datos se envían correctamente, redirigir a /edm
+        this.$router.push('/edm');
+      } catch (error) {
+        this.errorMessage = 'Error al enviar los datos. Intenta de nuevo.';
+      }
     }
   }
 };

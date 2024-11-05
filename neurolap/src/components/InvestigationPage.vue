@@ -74,7 +74,7 @@ export default {
 
 .header h1, .text h1 {
   font-family: 'Inter', sans-serif;
-  font-size: 5vw;
+  font-size: 4vw;
   color: #98002E;
   margin: 0;
   margin-right: 10vh;

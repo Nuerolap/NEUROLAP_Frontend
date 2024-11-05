@@ -119,18 +119,16 @@ export default {
 }
 
 .service-card1 h2 {
-  margin-top: 1vw; /* Ajusta el margen superior según sea necesario */
-  margin: 1.5vw auto 1.5vw auto; /* Centra la imagen horizontalmente */
+  margin: 1vw auto 1vw auto; /* Centra la imagen horizontalmente */
   font-family: 'Inter';
   font-style: normal;
   font-weight: bold;
   font-size: 1.5vw;
-  text-align: center;
   color: #1E1D4C;
 }
 
 .learn-more {
-  margin: 0 auto 1.5vw auto; /* Centra la imagen horizontalmente */
+  margin: 0 auto 0 auto; /* Centra la imagen horizontalmente */
   font-family: 'Poppins';
   font-style: normal;
   font-weight: normal;
@@ -146,7 +144,7 @@ export default {
 .evaluation-section h2 {
   font-family: 'Inter';
   font-weight: bold;
-  font-size: normal;
+  font-size: 4vw;
   line-height: 111%;
   text-align: center;
   margin-bottom: 2%;

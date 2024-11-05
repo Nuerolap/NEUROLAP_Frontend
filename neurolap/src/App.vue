@@ -20,11 +20,11 @@
       <div class="footer-content">
         <p>© 2024 NEUROLAP. Todos los derechos reservados.</p>
         <div class="social-icons">
-          <a href="https://www.instagram.com" target="_blank">
+          <a href="https://www.instagram.com/incc.bolivia/profilecard" target="_blank">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="https://www.dribbble.com" target="_blank">
-            <i class="fab fa-dribbble"></i>
+          <a href="https://www.facebook.com/InstitutoDeNeurocienciasComportamentales?mibextid=LQQJ4d" target="_blank">
+            <i class="fab fa-facebook"></i>
           </a>
           <a href="https://www.twitter.com" target="_blank">
             <i class="fab fa-twitter"></i>
