@@ -163,7 +163,7 @@ export default {
 .content2 {
   display: flex;
   flex-wrap: wrap;
-  gap: 5vw;
+  gap: 7vw;
   margin-top: 4vw;
   justify-content: center;
   padding: 0 7vw;

@@ -69,22 +69,20 @@ export default {
 
 /* Header Section */
 .header {
-  margin-left: 7vh;
+  padding-left: 5vw;
 }
 
-.header h1, .text h1 {
+.header h1 {
   font-family: 'Inter', sans-serif;
   font-size: 4vw;
   color: #98002E;
   margin: 0;
-  margin-right: 10vh;
 }
 
 /* Underline Style */
 .underline {
-  margin-top: 9vh;
-  margin-left: 7vh;
-  width: 41%;
+  margin: 1vw 0 2vw 0;
+  width: 10%;
   height: 1ex;
   background-color: #FDB714;
 }

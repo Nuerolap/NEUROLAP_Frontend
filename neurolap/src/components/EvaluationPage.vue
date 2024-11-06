@@ -23,6 +23,12 @@
     <div class="diagram">
       <img src="@/assets/evaluation-diagram.png" alt="Funciones neuropsicologicas">
     </div>
+    <div class="test-section">
+      <h2>EVALUACIÓN DIFERENCIAL DE LA MEMORIA </h2>
+      <div class="button-container">
+        <router-link to="/registration" class="button">Iniciar</router-link>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,18 +43,18 @@ export default {
   margin-top: 9vh;
 }
 
+/* Header Section */
 .header {
-  margin-left: 7vh;
-  margin-right: 7vh;
+  padding-left: 5vw;
 }
 
 .header h1 {
   font-family: 'Inter', sans-serif;
-  font-size: 5vw;
+  font-size: 4vw;
   color: #98002E;
   margin: 0;
-  margin-right: 10vh;
 }
+
 
 .underline {
   margin-top: 9vh;
@@ -114,5 +120,44 @@ export default {
   align-content: center;
 }
 
+.test-section {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.test-section h2 {
+  font-family: 'Inter';
+  font-weight: bold;
+  font-size: 4vw;
+  line-height: 111%;
+  text-align: center;
+  margin-bottom: 2%;
+  color: #000000;
+  flex: none;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.button {
+  text-decoration: none;
+  background-color: #8D323E;
+  padding: 1% 3%;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2vw;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #AB8A8E;
+  color: #8D323E;
+  font-weight: bold;
+}
 
 </style>

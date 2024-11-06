@@ -12,62 +12,62 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="nombre">Nombre(s)</label>
-                <input v-model="nombre" type="text" id="nombre" required />
+                <input v-model="formData.nombre" @input="handleInput('updateNombre', $event)" type="text" id="nombre" required />
               </div>
               <div class="form-group">
                 <label for="apellido">Apellido(s)</label>
-                <input v-model="apellido" type="text" id="apellido" required />
+                <input v-model="formData.apellido" @input="handleInput('updateApellido', $event)" type="text" id="apellido" required />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="ciudad">Ciudad Natal</label>
-                <input v-model="ciudad" type="text" id="ciudad" required />
+                <input v-model="formData.ciudad" @input="handleInput('updateCiudad', $event)" type="text" id="ciudad" required />
               </div>
               <div class="form-group">
                 <label for="cedula">Cédula de Identidad</label>
-                <input v-model="cedula" type="text" id="cedula" required />
+                <input v-model="formData.cedula" @input="handleInput('updateCedula', $event)" type="text" id="cedula" required />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                <input v-model="fechaNacimiento" type="date" id="fechaNacimiento" required />
+                <input v-model="formData.fechaNacimiento" @input="handleInput('updateFechaNacimiento', $event)" type="date" id="fechaNacimiento" required />
               </div>
               <div class="form-group">
                 <label for="estadoCivil">Estado Civil</label>
-                <input v-model="estadoCivil" type="text" id="estadoCivil" required />
+                <input v-model="formData.estadoCivil" @input="handleInput('updateEstadoCivil', $event)" type="text" id="estadoCivil" required />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="gradoInstruccion">Grado de Instrucción</label>
-                <input v-model="gradoInstruccion" type="text" id="gradoInstruccion" required />
+                <input v-model="formData.gradoInstruccion" @input="handleInput('updateGradoInstruccion', $event)" type="text" id="gradoInstruccion" required />
               </div>
               <div class="form-group">
                 <label for="profesion">Profesión/Ocupación</label>
-                <input v-model="profesion" type="text" id="profesion" required />
+                <input v-model="formData.profesion" @input="handleInput('updateProfesion', $event)" type="text" id="profesion" required />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="telefono1">Teléfono 1</label>
-                <input v-model="telefono1" type="tel" id="telefono1" required />
+                <input v-model="formData.telefono1" @input="handleInput('updateTelefono1', $event)" type="tel" id="telefono1" required />
               </div>
               <div class="form-group">
                 <label for="telefono2">Teléfono 2 (Opcional)</label>
-                <input v-model="telefono2" type="tel" id="telefono2" />
+                <input v-model="formData.telefono2" @input="handleInput('updateTelefono2', $event)" type="tel" id="telefono2" />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="direccion">Dirección</label>
-                <input v-model="direccion" type="text" id="direccion" required />
+                <input v-model="formData.direccion" @input="handleInput('updateDireccion', $event)" type="text" id="direccion" required />
               </div>
             </div>
             <div class="form-group form-checkbox">
-              <input v-model="aceptarTerminos" type="checkbox" id="terminos" required />
-              <label for="terminos">Estoy de acuerdo con los <a href="#">Términos</a> y <a href="#">Política de privacidad</a></label>
+              <input v-model="formData.aceptarTerminos" @change="handleCheckbox('updateAceptarTerminos', $event)" type="checkbox" id="terminos" required />
+              <label for="terminos">Estoy de acuerdo con los <router-link to="/terms">Términos y Política de privacidad</router-link></label>
             </div>
             <button type="submit" class="btn">Enviar</button>
           </form>
@@ -79,36 +79,48 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
+
 export default {
   name: 'RegistrationPage',
   data() {
     return {
-      nombre: '',
-      apellido: '',
-      ciudad: '',
-      cedula: '',
-      fechaNacimiento: '',
-      estadoCivil: '',
-      gradoInstruccion: '',
-      profesion: '',
-      telefono1: '',
-      telefono2: '',
-      direccion: '',
-      aceptarTerminos: false,
       errorMessage: ''
     };
   },
+  computed: {
+    ...mapState({
+      formData: state => state.formData
+    })
+  },
   methods: {
-    async handleSubmit() {
+    ...mapMutations([
+      'updateNombre',
+      'updateApellido',
+      'updateCiudad',
+      'updateCedula',
+      'updateFechaNacimiento',
+      'updateEstadoCivil',
+      'updateGradoInstruccion',
+      'updateProfesion',
+      'updateTelefono1',
+      'updateTelefono2',
+      'updateDireccion',
+      'updateAceptarTerminos'
+    ]),
+    handleSubmit() {
       try {
-        // Aquí podrías añadir la lógica para enviar los datos a tu servidor
-        console.log('Formulario enviado');
-        
-        // Suponiendo que los datos se envían correctamente, redirigir a /edm
+        console.log('Formulario enviado', this.formData);
         this.$router.push('/edm');
       } catch (error) {
         this.errorMessage = 'Error al enviar los datos. Intenta de nuevo.';
       }
+    },
+    handleInput(mutation, event) {
+      this[mutation](event.target.value);
+    },
+    handleCheckbox(mutation, event) {
+      this[mutation](event.target.checked);
     }
   }
 };

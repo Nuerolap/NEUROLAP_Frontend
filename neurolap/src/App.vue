@@ -26,12 +26,6 @@
           <a href="https://www.facebook.com/InstitutoDeNeurocienciasComportamentales?mibextid=LQQJ4d" target="_blank">
             <i class="fab fa-facebook"></i>
           </a>
-          <a href="https://www.twitter.com" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://www.youtube.com" target="_blank">
-            <i class="fab fa-youtube"></i>
-          </a>
         </div>
       </div>
     </footer>
@@ -60,14 +54,13 @@ html, body {
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Altura mínima de 100% de la pantalla */
 }
 
 .header {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 6vw; /* Ajusta la altura de la barra de navegación */
+  height: 5vw; /* Ajusta la altura de la barra de navegación */
   padding: 0;
   margin: 0;
   position: relative;

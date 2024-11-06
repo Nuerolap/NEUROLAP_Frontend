@@ -1,55 +1,43 @@
 <template>
   <div class="help">
     <div class="header">
-      <h1>TÍTULO DE LA VENTANA</h1>
+      <h1>PROFESIONAL ACREDITADO</h1>
     </div>
     <div class="underline"></div>
+    <p>Para el profesional este portal será una ayuda al momento de trabajar con Personas Adultas Mayores (PAM). Para ser parte de él usted debe ser acreditado previamente, este portal solo admite a usuarios de las siguientes ramas: neuropsicólogos, psicólogos clínicos, médicos generales, médicos familiares, gerontólogos, psiquiatras, neurólogos y otros profesionales vinculados a las neurociencias y el desarrollo humano.</p>
     <div class="content">
       <div class="text">
-        <p>Contenido principal de la ventana. Aquí puedes añadir el texto que desees.</p>
+        <p>Al ser parte del portal usted puede acceder a las siguientes evaluaciones:</p>
+        <h3>Evaluación Diferencial de la Memoria (EDM):</h3>
+        <p>Donde usted podrá luego de realizar la prueba a la PAM obtener un reporte clínico el cuál se indicará el estado actual de la memoria de su paciente de forma clara y precisa</p>
+        <h3>Escala de Reserva Cognitiva: </h3>
+        <p>Esta escala ayuda a ver las habilidades o hábitos que posee la PAM y que pueden ser utilizadas para palear el avance del deterioro cognitivo.</p>
+        <h3>Mini-Mental State Examination (MMSE): </h3>
+        <p>Es una prueba rápida la cual confirma el resultado obtenido en el EDM.</p>
+        <h3>Escala Global de Deterioro cognitivo (GDS):</h3>
+        <p> Esta escala le indicará a usted en qué fase se encuentra su paciente, dependiendo los síntomas que el presenta.</p>
       </div>
       <div class="image">
-        <img src="@/assets/home-image.png" alt="Descripción de la imagen">
+        <img src="@/assets/help-image.png" alt="Profesional acreditado">
       </div>
     </div>
     <div class="quote">
-      <p>Cita o texto destacado relacionado con el contenido.</p>
+      <p>Por estos beneficios de brindar un mejor servicio y trato a su paciente PAM le invitamos a ser parte de esta experiencia que contribuirá no solo a su desempeño como profesional sino que ayudará a investigaciones del área a nivel nacional e internacional.</p>
     </div>
     <div class="extra-content">
-      <p>Contenido adicional que puede incluir texto, diagramas, etc.</p>
+      <h2>Una Persona Adulto Mayor:</h2>
+      <p>Si usted es una Persona Adulta Mayor (PAM) este portal le ayudará en la detección temprana de problemas de memoria. Usted puede dirigirse a nuestros profesionales acreditados de las siguientes ramas: neuropsicólogos, psicólogos clínicos, médicos generales, médicos familiares, gerontólogos, psiquiatras, neurólogos y otros profesionales vinculados a las neurociencias y el desarrollo humano; para que se le realice las evaluaciones respectivas.</p> 
+      <p>Al realizarle las pruebas usted podrá tener una descripción precisa de su estado actual de memoria y ser parte de un programa de estimulación cognitiva, servicio que se brinda en la Universidad Privada de Santa Cruz (UPSA) en el Centro de Investigaciones y Asesoramiento Psicológico (CIAP), donde contamos con un equipo especializado y listo para atenderlo en lo que necesite.</p>
     </div>
-    <div class="diagram">
-      <img src="@/assets/evaluation-diagram.png" alt="Descripción del diagrama">
-    </div>
-    <!-- Additional Sections from Home Page -->
-    <div class="other-section">
-      <div class="other-header">
-        <div class="line"></div>
-        <div class="text-header">
-          <h2>Sección 1</h2>
-        </div>
+    <div class="other-content">
+      <div class="other-text">
+        <h2>Familiar o cuidador:</h2>
+        <p>Si usted es un familiar o cuidador de una Persona Adulta Mayor (PAM) el servicio que le brinda a usted primeramente es el de contactar a un profesional del area: neuropsicólogos, psicólogos clínicos, médicos generales, médicos familiares, gerontólogos, psiquiatras, neurólogos y otros profesionales vinculados a las neurociencias y el desarrollo humano. Al contactarse con ellos la PAM será evaluada con una serie de instrumentos que determinarán cuál es la situación de su memoria. Posterior a esta prueba puede llevar a la PAM a la Universidad Privada de Santa Cruz (UPSA) en el Centro de Investigaciones y Asesoramiento Psicológico (CIAP), donde contamos con un equipo especializado y listo para trabajar con la PAM en la estimulación cognitiva, además en él usted recibirá capacitaciones sobre el cuidado de esta persona.</p> 
       </div>
-      <div class="other-content">
-        <div class="other-image">
-          <img src="@/assets/home-image.png" alt="Descripción de la imagen histórica">
-        </div>
-        <div class="other-text">
-          <p>Contenido de la historia...</p>
-        </div>
+      <div class="other-image">
+        <img src="@/assets/family-image.png" alt="Familiar o cuidador">
       </div>
-    </div>
-    <div class="vision-section">
-      <h2>Subseccion 1</h2>
-      <p>Contenido de la subseccion...</p>
-    </div>
-    <div class="mission-section">
-      <h2>Subseccion 2</h2>
-      <p>Contenido de la subseccion...</p>
-    </div>
-    <div class="objectives-section">
-      <h2>Subseccion 3</h2>
-      <p>Contenido de los subseccion...</p>
-    </div>
+    </div>    
   </div>
 </template>
 
@@ -69,45 +57,34 @@ export default {
 
 /* Header Section */
 .header {
-  margin-left: 7vh;
+  padding-left: 5vw;
 }
 
-.header h1, .text h1 {
+.header h1 {
   font-family: 'Inter', sans-serif;
   font-size: 4vw;
   color: #98002E;
   margin: 0;
-  margin-right: 10vh;
 }
 
 /* Underline Style */
 .underline {
-  margin-top: 9vh;
-  margin-left: 7vh;
-  width: 41%;
+  margin: 1vw 0 2vw 5vw;
+  width: 10%;
   height: 1ex;
   background-color: #FDB714;
-}
-
-.line {
-  flex: 3;
-  width: 41%;
-  height: 1ex;
-  background-color: #b27270;
 }
 
 /* Content Section */
 .content, .welcome-section, .other-content {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  gap: 4vw;
-  margin: 4% 0;
+  gap: 2vw;
 }
 
-.text, .other-text, .vision-section p, .mission-section p, .objectives-section p {
-  margin-top: 2vh;
-  margin-left: 7vh;
+.help p {
+  margin: 2vh 5vw;
   flex: 1;
   text-align: justify;
   font-family: 'Maiandra GD';
@@ -115,7 +92,32 @@ export default {
   color: #333;
 }
 
-.image, .other-image {
+.text, .other-text, .mission-section p, .objectives-section p {
+  margin-left: 5vw;
+  flex: 1;
+  text-align: justify;
+  font-family: 'Maiandra GD';
+  font-size: 1.8vw;
+  color: #333;
+}
+
+.text h3 {
+  color: #98002E;
+  font-family: 'Inter';
+  font-size: 1.8vw;
+  margin: 2vw 0 0 0;
+}
+
+.text p {
+  margin: 0;
+}
+
+.image {
+  flex: 1;
+  margin-right: 5vw;
+}
+
+.other-image {
   flex: 1;
 }
 
@@ -124,7 +126,6 @@ export default {
   height: auto;
   display: block;
 }
-
 
 .diagram {
   flex: 1;
@@ -139,21 +140,36 @@ export default {
 
 /* Quote Section */
 .quote {
+  margin: 2vw 0;
   background-color: #98002E;
-  color: white;
-  padding: 2% 12%;
-  font-family: 'Maiandra GD';
-  font-size: 3vw;
+  padding: 2% 5%;
   text-align: center;
+}
+
+.quote p{
+  color: white;
+  font-family: 'Maiandra GD';
+  font-size: 2vw;
 }
 
 /* Extra Content Section */
 .extra-content {
   color: #4A4459;
-  padding: 5%;
   font-family: 'Inter';
   font-size: 1.8vw;
-  text-align: center;
+  text-align: justify;
+  margin: 0 5vw;
+}
+
+.extra-content h2, .other-text h2 {
+  color: #98002E;
+  font-family: 'Inter';
+  font-size: 2.5vw;
+  margin: 2vw 0 1vw 0;
+}
+
+.extra-content p, .other-text p{
+  margin: 0;
 }
 
 /* Rectangle Styles */

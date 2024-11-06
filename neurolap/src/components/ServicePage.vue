@@ -21,7 +21,7 @@
       <div class="service-card1">
         <img src="@/assets/info-icon.png" alt="Reporte clínico de la evaluación">
         <h2>REPORTE CLÍNICO DE LA EVALUACIÓN</h2>
-        <a href="#" class="learn-more">Saber más...</a>
+        <a href="/report" class="learn-more">Saber más...</a>
       </div>
       <div class="service-card1">
         <img src="@/assets/info-icon.png" alt="Estimulación neurocognitiva">
