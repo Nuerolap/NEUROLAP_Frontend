@@ -8,79 +8,121 @@
       <p>En este portal, usted encontrará un protocolo que mide el estado de los distintos tipos de memoria, por lo que recibe el nombre de “Evaluación Diferencial de la Memoria”. Este instrumento consta de 34 ítems seleccionados de 14 test de memoria, estandarizados de habla hispana.</p>
     </div>
     <div class="content">
-      <div class="section">
-        <h2>1-3 MEMORIA EPISÓDICA: ORIENTACIÓN - IDENTIFICACIÓN - PERSONA</h2>
-        <p>Explicar al paciente que debemos formalmente hacer preguntas que son muy fáciles. "A continuación le voy a hacer algunas preguntas, muchas de ellas parecen muy simples e inclusive bobas pero necesito hacerlas para tenerlas registradas así que usted por favor contésteme lo mejor que pueda para que el registro quede muy bien" (acompañe este texto con los gestos que correspondan para evitar que el paciente se enoje o se sienta insultado por el tipo de preguntas) (sobre 3 puntos)</p>
-        <div class="form-group">
-          <label for="edm_nombre">1. ¿CUÁL ES SU NOMBRE?</label>
-          <input v-model="edm_nombre" type="text" id="edm_nombre" required />
+      <form @submit.prevent="handleSubmit">
+        <div class="section">
+          <h2>1-3 MEMORIA EPISÓDICA: ORIENTACIÓN - IDENTIFICACIÓN - PERSONA</h2>
+          <p>Explicar al paciente que debemos formalmente hacer preguntas que son muy fáciles. <strong>"A continuación le voy a hacer algunas preguntas, muchas de ellas parecen muy simples e inclusive bobas pero necesito hacerlas para tenerlas registradas así que usted por favor contésteme lo mejor que pueda para que el registro quede muy bien"</strong> (acompañe este texto con los gestos que correspondan para evitar que el paciente se enoje o se sienta insultado por el tipo de preguntas) (sobre 3 puntos)</p>
+          <div class="form-group">
+            <label for="episodica1_1">1. ¿CUÁL ES SU NOMBRE?</label>
+            <input v-model="episodica1.nombre" type="text" id="episodica1_1" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica1_2">2. ¿CUÁL ES SU APELLIDO?</label>
+            <input v-model="episodica1.apellido" type="text" id="episodica1_2" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica1_3">3. ¿QUÉ EDAD TIENE?</label>
+            <input v-model="episodica1.edad" type="text" id="episodica1_3" required />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="edm_apellido">2. ¿CUÁL ES SU APELLIDO?</label>
-          <input v-model="edm_apellido" type="text" id="edm_apellido" required />
+        <div class="section">
+          <h2>2-2 MEMORIA EPISÓDICA: ORIENTACIÓN - ORIENTACIÓN - ESPACIO</h2>
+          <p><strong>"Bien, ahora continuamos con más preguntas. Empezamos"</strong> (sobre 5 puntos)</p>
+          <div class="form-group">
+            <label for="episodica2_1">1. ¿EN QUÉ LUGAR ESTAMOS?</label>
+            <input v-model="episodica2.lugar" type="text" id="episodica2_1" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica2_2">2. ¿EN QUÉ PISO?</label>
+            <input v-model="episodica2.piso" type="text" id="episodica2_2" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica2_3">3. ¿NOMBRE DE LA CALLE?</label>
+            <input v-model="episodica2.calle" type="text" id="episodica2_3" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica2_4">4. ¿EN QUÉ DEPARTAMENTO/PROVINCIA/CIUDAD?</label>
+            <input v-model="episodica2.departamento" type="text" id="episodica2_4" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica2_5">5. ¿EN QUÉ PAÍS?</label>
+            <input v-model="episodica2.pais" type="text" id="episodica2_5" required />
+          </div>
         </div>
-        <div class="form-group">
-          <label for="edm_edad">3. ¿QUÉ EDAD TIENE?</label>
-          <input v-model="edm_edad" type="text" id="edm_edad" required />
+        <div class="section">
+          <h2>3-4 MEMORIA EPISÓDICA: ORIENTACIÓN - IDENTIFICACIÓN - REMOTA</h2>
+          <p><strong>"Seguimos con unas preguntas más"</strong> (sobre 7 puntos)</p>
+          <div class="form-group">
+            <label for="episodica3_1">1. ¿EN QUÉ FECHA ES NAVIDAD?</label>
+            <input v-model="episodica3.navidad" type="text" id="episodica3_1" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica3_2">2. ¿QUÉ SE FESTEJA EL 06 DE AGOSTO?</label>
+            <input v-model="episodica3.agosto6" type="text" id="episodica3_2" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica3_3">3. ¿CUÁNTOS DÍAS TIENE ENERO?</label>
+            <input v-model="episodica3.enero" type="text" id="episodica3_3" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica3_4">4. ¿QUÉ SE FESTEJA EL 24 DE SEPTIEMBRE?</label>
+            <input v-model="episodica3.septiembre24" type="text" id="episodica3_4" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica3_5">5. ¿CUÁLES SON LOS COLORES DE LA BANDERA BOLIVIANA?</label>
+            <input v-model="episodica3.bandera" type="text" id="episodica3_5" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica3_6">6. ¿CUÁNTOS DEPARTAMENTOS TIENE BOLIVIA?</label>
+            <input v-model="episodica3.departamentos" type="text" id="episodica3_6" required />
+          </div>
+          <div class="form-group">
+            <label for="episodica3_7">7. ¿QUIÉN FUE SIMÓN BOLIVAR?</label>
+            <input v-model="episodica3.simonBolivar" type="text" id="episodica3_7" required />
+          </div>
         </div>
-      </div>
-      <div class="section">
-        <h2>2-2 MEMORIA EPISÓDICA: ORIENTACIÓN - ORIENTACIÓN - ESPACIO</h2>
-        <p>"Bien, ahora continuamos con más preguntas. Empezamos" (sobre 5 puntos)</p>
-        <div class="form-group">
-          <label for="edm_lugar">1. ¿EN QUÉ LUGAR ESTAMOS?</label>
-          <input v-model="edm_lugar" type="text" id="edm_lugar" required />
+        <div class="section">
+          <h2>4-5 MEMORIA OPERATIVA: ATENCIÓN - CÁLC. Y SEGUIM. - PROGRESIÓN</h2>
+          <p>El examinador pide que el paciente nombre los días de la semana en orden progresivo; se anumal la instrucción cuando el sujeto demora por buscar algún tipo de ayuda (repite desde el principio más de dos veces).</p>
+          <p><strong>"Nombre los días de la semana, del primero que es hábil al último"</strong> (sobre 7 puntos)</p>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" v-model="operativa4.lunes"> Lunes
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" v-model="operativa4.martes"> Martes
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" v-model="operativa4.miercoles"> Miércoles
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" v-model="operativa4.jueves"> Jueves
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" v-model="operativa4.viernes"> Viernes
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" v-model="operativa4.sabado"> Sábado
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" v-model="operativa4.domingo"> Domingo
+            </label>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="edm_piso">2. ¿EN QUÉ PISO?</label>
-          <input v-model="edm_piso" type="text" id="edm_piso" required />
-        </div>
-        <div class="form-group">
-          <label for="edm_calle">3. ¿NOMBRE DE LA CALLE?</label>
-          <input v-model="edm_calle" type="text" id="edm_calle" required />
-        </div>
-        <div class="form-group">
-          <label for="edm_ciudad">4. ¿EN QUÉ DEPARTAMENTO/PROVINCIA/CIUDAD?</label>
-          <input v-model="edm_ciudad" type="text" id="edm_ciudad" required />
-        </div>
-        <div class="form-group">
-          <label for="edm_pais">5. ¿EN QUÉ PAÍS?</label>
-          <input v-model="edm_pais" type="text" id="edm_pais" required />
-        </div>
-      </div>
-      <div class="section">
-        <h2>3-4 MEMORIA EPISÓDICA: ORIENTACIÓN - IDENTIFICACIÓN - REMOTA</h2>
-        <p>"Seguimos con unas preguntas más" (sobre 7 puntos)</p>
-        <div class="form-group">
-          <label for="edm_navidad">1. ¿EN QUÉ FECHA ES NAVIDAD?</label>
-          <input v-model="edm_navidad" type="text" id="edm_navidad" required />
-        </div>
-        <div class="form-group">
-          <label for="edm_agosto">2. ¿QUÉ SE FESTEJA EL 06 DE AGOSTO?</label>
-          <input v-model="edm_agosto" type="text" id="edm_agosto" required />
-        </div>
-        <div class="form-group">
-          <label for="edm_enero">3. ¿CUÁNTOS DÍAS TIENE ENERO?</label>
-          <input v-model="edm_enero" type="text" id="edm_enero" required />
-        </div>
-        <div class="form-group">
-          <label for="edm_septiembre">4. ¿QUÉ SE FESTEJA EL 24 DE SEPTIEMBRE?</label>
-          <input v-model="edm_septiembre" type="text" id="edm_septiembre" required />
-        </div>
-        <div class="form-group">
-          <label for="edm_bandera">5. ¿CUÁLES SON LOS COLORES DE LA BANDERA BOLIVIANA?</label>
-          <input v-model="edm_bandera" type="text" id="edm_bandera" required />
-        </div>
-        <div class="form-group">
-          <label for="edm_departamentos">6. ¿CUÁNTOS DEPARTAMENTOS TIENE BOLIVIA?</label>
-          <input v-model="edm_departamentos" type="text" id="edm_departamentos" required />
-        </div>
-        <div class="form-group">
-          <label for="edm_bolivar">7. ¿QUIÉN FUE SIMÓN BOLIVAR?</label>
-          <input v-model="edm_bolivar" type="text" id="edm_bolivar" required />
-        </div>
-      </div>
-      <button type="submit" class="btn">Enviar</button>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
     </div>
     <p class="error-message">{{ errorMessage }}</p>
   </div>
@@ -90,21 +132,36 @@
 export default {
   data() {
     return {
-      edm_nombre: '',
-      edm_apellido: '',
-      edm_edad: '',
-      edm_lugar: '',
-      edm_piso: '',
-      edm_calle: '',
-      edm_ciudad: '',
-      edm_pais: '',
-      edm_navidad: '',
-      edm_agosto: '',
-      edm_enero: '',
-      edm_septiembre: '',
-      edm_bandera: '',
-      edm_departamentos: '',
-      edm_bolivar: '',
+      episodica1: {
+        nombre: '',
+        apellido: '',
+        edad: ''
+      },
+      episodica2: {
+        lugar: '',
+        piso: '',
+        calle: '',
+        departamento: '',
+        pais: ''
+      },
+      episodica3: {
+        navidad: '',
+        agosto6: '',
+        enero: '',
+        septiembre24: '',
+        bandera: '',
+        departamentos: '',
+        simonBolivar: ''
+      },
+      operativa4: {
+        lunes: false,
+        martes: false,
+        miercoles: false,
+        jueves: false,
+        viernes: false,
+        sabado: false,
+        domingo: false
+      },
       errorMessage: ''
     };
   },
@@ -112,24 +169,12 @@ export default {
     async handleSubmit() {
       try {
         // Aquí podrías añadir la lógica para enviar los datos a tu servidor
-        console.log('Formulario enviado:', {
-          edm_nombre: this.edm_nombre,
-          edm_apellido: this.edm_apellido,
-          edm_edad: this.edm_edad,
-          edm_lugar: this.edm_lugar,
-          edm_piso: this.edm_piso,
-          edm_calle: this.edm_calle,
-          edm_ciudad: this.edm_ciudad,
-          edm_pais: this.edm_pais,
-          edm_navidad: this.edm_navidad,
-          edm_agosto: this.edm_agosto,
-          edm_enero: this.edm_enero,
-          edm_septiembre: this.edm_septiembre,
-          edm_bandera: this.edm_bandera,
-          edm_departamentos: this.edm_departamentos,
-          edm_bolivar: this.edm_bolivar
-        });
-        
+      console.log('Formulario enviado:', {
+        episodica1: this.episodica1,
+        episodica2: this.episodica2,
+        episodica3: this.episodica3,
+        operativa4: this.operativa4
+      });
         // Suponiendo que los datos se envían correctamente, redirigir a /report
         this.$router.push('/report');
       } catch (error) {
@@ -194,16 +239,19 @@ export default {
 .section p {
   font-size: 1.8vw;
   color: #333;
+  text-align: justify;
 }
 
 .form-group {
-  margin: 1vw 0;
+  margin: 1vw 2vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 3%;
+  align-items: baseline;
 }
 
 label {
-  display: block;
-  margin-bottom: 0.5em;
-  font-size: 1.3vw;
+  font-size: 1.4vw;
 }
 
 input[type="text"] {
@@ -213,6 +261,12 @@ input[type="text"] {
   border-radius: 5px;
   font-size: 1.3vw;
   font-family: 'Poppins';
+  flex: 1;
+}
+
+input[type="checkbox"] {
+  margin-right: 1vw;
+  margin-bottom: -1vw;
 }
 
 .btn {
