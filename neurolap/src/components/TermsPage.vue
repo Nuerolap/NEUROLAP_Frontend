@@ -6,7 +6,7 @@
     <div class="extra-content">
       <p>Por favor lea  cuidadosamente el contenido de este documento, debemos estar seguros que comprende todos los requisitos  y procedimientos que requiere su participación.</p>
       <h2>Proposito del Estudio:</h2>
-      <p>El propósito de este estudio es detectar casos de personas adultas mayores que presenten alteraciones en el  estado neuropsicológico para poder implementar de manera gratuita un programa de intervención  neuropsicológica, para lo cual tenemos como punto de partida el establecimiento del perfil neuropsicológico  de las personas Adultas Mayores en la ciudad de Santa Cruz de la Sierra.</p>
+      <p>El propósito de este estudio es detectar casos de personas adultas mayores que presenten alteraciones la memoria para generar programas de intervención personalizados de manera gratuita, para lo cual tenemos como punto de partida el establecimiento del perfil neuropsicológico  de las personas Adultas </p>
       <h2>Riesgo del Estudio:</h2>
       <p>La participación en este estudio no representa para el adulto mayor o su entorno NINGÚN RIESGO al no  plantearse variables de influencia, ni positiva, ni negativa.</p>
       <h2>Participación en el Estudio:</h2>
@@ -14,7 +14,7 @@
       <h2>Confidencialidad:</h2>
       <p>Su información llevará su nombre, pero este no será nunca divulgado. La base de datos del estudio permanecerá  en la oficina del investigador principal y solamente los miembros del equipo de investigación tendrán acceso  a ella.</p>
       <h2>Aceptación:</h2>
-      <p>He leído este consentimiento de participación en el Estudio del e, el cual está impreso en español (lenguaje  que leo y entiendo). Este estudio de investigación me ha sido explicado y todas mis preguntas relacionadas con  los procedimientos, riesgos, inconvenientes y efectos adversos del mismo, me han sido respondidas  satisfactoriamente.</p>
+      <p>He leído este consentimiento de participación, el cual está escrito en español (lenguaje  que leo y entiendo). Este estudio de investigación me ha sido explicado y todas mis preguntas relacionadas con  los procedimientos, riesgos, inconvenientes y efectos adversos del mismo, me han sido respondidas  satisfactoriamente.</p>
     </div>
     <div class="button-container">
       <router-link to="/registration" class="button">Volver</router-link>

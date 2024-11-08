@@ -10,31 +10,23 @@
           <li><router-link to="/investigation">Investigación</router-link></li>
           <li><router-link to="/help">¿Necesitas ayuda?</router-link></li>
           <li><router-link to="/contact">Contáctanos</router-link></li>
-          <li><router-link to="/login" class="button">Iniciar</router-link></li>
-          <li><router-link to="/signup" class="button">Registrate</router-link></li>
+          <li><router-link to="/login" class="button">Iniciar Sesión</router-link></li>
         </ul>
       </nav>
     </header>
     <router-view></router-view>
-    <footer class="footer">
-      <div class="footer-content">
-        <p>© 2024 NEUROLAP. Todos los derechos reservados.</p>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/incc.bolivia/profilecard" target="_blank">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.facebook.com/InstitutoDeNeurocienciasComportamentales?mibextid=LQQJ4d" target="_blank">
-            <i class="fab fa-facebook"></i>
-          </a>
-        </div>
-      </div>
-    </footer>
+    <SiteFooter />
   </div>
 </template>
 
 <script>
+import SiteFooter from './components/SiteFooter.vue';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    SiteFooter
+  }
 };
 </script>
 
@@ -54,13 +46,14 @@ html, body {
 #app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh; /* Altura mínima de 100% de la pantalla */
 }
 
 .header {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 5vw; /* Ajusta la altura de la barra de navegación */
+  height: 6vw; /* Ajusta la altura de la barra de navegación */
   padding: 0;
   margin: 0;
   position: relative;
@@ -128,41 +121,6 @@ nav a.button:hover {
 .router-view {
   margin-top: 8vh; /* Asegúrate de que el contenido no se superponga al header */
   flex: 1; 
-}
-
-.footer {
-  background-color: #000000;
-  color: #FFFFFF;
-  padding: 2vh 0;
-  font-family: 'Inter', sans-serif;
-  margin-top: auto; 
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 100%;
-  padding: 0 2vw;
-}
-
-.footer p {
-  margin: 0;
-  font-size: 1.5vw;
-}
-
-.social-icons {
-  display: flex;
-  gap: 3vw;
-}
-
-.social-icons a {
-  color: #FFFFFF;
-  font-size: 2vw;
-}
-
-.social-icons a:hover {
-  color: #AB8A8E;
 }
 
 </style>

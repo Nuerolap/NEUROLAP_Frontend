@@ -48,7 +48,7 @@ export default {
 
 <style scoped>
 .signup-container {
-  max-width: 50%;
+  width: 40%;
   margin: 4vw auto;
   padding: 1vw 5vw;
   border: 1px solid #ccc;
@@ -58,8 +58,9 @@ export default {
 }
 
 .signup-container h2 {
-  font-size: 5vw;
+  font-size: 3.5vw;
   color: #800000;
+  text-align: center;
 }
 
 .form-group {
@@ -70,7 +71,7 @@ label {
   display: block;
   margin-bottom: 1vw;
   font-weight: bold;
-  font-size: 2.5vw;
+  font-size: 2vw;
 }
 
 input {
@@ -102,4 +103,5 @@ input {
   color: red;
   margin-top: 10px;
 }
+
 </style>

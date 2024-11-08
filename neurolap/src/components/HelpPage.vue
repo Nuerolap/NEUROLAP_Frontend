@@ -50,9 +50,7 @@ export default {
 <style scoped>
 /* General Styles */
 .help {
-  margin-top: 7vh;
-  margin-bottom: 5vh;
-  padding: 0;
+  margin: 3vw 0 5vh 0;
 }
 
 /* Header Section */

@@ -10,9 +10,10 @@
         <label for="password">Contraseña:</label>
         <input v-model="password" type="password" id="password" required />
       </div>
-      <button type="submit" class="btn">Login</button>
+      <button type="submit" class="btn">Iniciar Sesión</button>
     </form>
     <p class="error-message">{{ errorMessage }}</p>
+    <p class="register-link">¿No tienes una cuenta? <router-link to="/signup">Registrate</router-link></p>
   </div>
 </template>
 
@@ -48,7 +49,7 @@ export default {
 
 <style scoped>
 .login-container {
-  max-width: 50%;
+  width: 40%;
   margin: 4vw auto;
   padding: 1vw 5vw;
   border: 1px solid #ccc;
@@ -59,8 +60,9 @@ export default {
 
 
 .login-container h2 {
-  font-size: 5vw;
+  font-size: 3.5vw;
   color: #800000;
+  text-align: center;
 }
 
 .form-group {
@@ -71,7 +73,7 @@ label {
   display: block;
   margin-bottom: 1vw;
   font-weight: bold;
-  font-size: 2.5vw;
+  font-size: 2vw;
 }
 
 input {
@@ -103,4 +105,21 @@ input {
   color: red;
   margin-top: 10px;
 }
+
+.register-link {
+  margin-top: 2vw;
+  font-size: 2vw;
+  text-align: center;
+}
+
+.register-link a {
+  color: #8D323E;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
 </style>

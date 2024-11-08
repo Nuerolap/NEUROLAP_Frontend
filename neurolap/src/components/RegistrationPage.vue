@@ -5,7 +5,7 @@
         <img src="@/assets/registration-image.png" alt="Registro Neurolap">
       </div>
       <div class="text">
-        <h1>¡Inicia tu proceso de Evaluación!</h1>
+        <h1>¡Inicia el proceso de Evaluación!</h1>
         <p>Registra los siguientes datos.</p>
         <div class="form-container">
           <form @submit.prevent="handleSubmit">
