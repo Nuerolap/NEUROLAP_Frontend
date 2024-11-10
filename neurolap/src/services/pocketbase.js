@@ -4,6 +4,8 @@ const POCKETBASE_API_URL = 'http://127.0.0.1:8090';
 
 const pb = new PocketBase(POCKETBASE_API_URL);
 
+export default pb;
+
 //funcion para autenticar a un usuario con email y password
 export const authWithPassword = async (email, password) => {
   return await pb.collection('usuario').authWithPassword(email, password);

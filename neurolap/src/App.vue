@@ -10,7 +10,11 @@
           <li><router-link to="/investigation">Investigación</router-link></li>
           <li><router-link to="/help">¿Necesitas ayuda?</router-link></li>
           <li><router-link to="/contact">Contáctanos</router-link></li>
-          <li><router-link to="/login" class="button">Iniciar Sesión</router-link></li>
+          <li>
+            <!-- Botón dinámico según el estado de autenticación -->
+            <a v-if="isLoggedIn" @click.prevent="handleLogout" class="button">Cerrar Sesión</a>
+            <router-link v-else to="/login" class="button">Iniciar Sesión</router-link>
+          </li>
         </ul>
       </nav>
     </header>
@@ -20,12 +24,48 @@
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
 import SiteFooter from './components/SiteFooter.vue';
+import pb, { logout } from './services/pocketbase';
 
 export default {
   name: 'App',
   components: {
     SiteFooter
+  },
+  setup() {
+    // Estado reactivo para el estado de autenticación
+    const isLoggedIn = ref(pb.authStore.isValid);
+
+    // Sincronizar el estado cuando PocketBase cambia
+    const syncAuthState = () => {
+      isLoggedIn.value = pb.authStore.isValid;
+    };
+
+    // Configurar sincronización al montar el componente
+    onMounted(() => {
+      // Establecer estado inicial
+      syncAuthState();
+
+      // Escuchar cambios en authStore
+      pb.authStore.onChange(syncAuthState);
+    });
+
+    // Función para manejar el cierre de sesión
+    const handleLogout = async () => {
+      try {
+        await logout();
+        syncAuthState(); // Actualizar el estado tras cerrar sesión
+        alert('Sesión cerrada correctamente.');
+      } catch (error) {
+        console.error('Error al cerrar sesión:', error);
+      }
+    };
+
+    return {
+      isLoggedIn,
+      handleLogout
+    };
   }
 };
 </script>
@@ -46,7 +86,7 @@ html, body {
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Altura mínima de 100% de la pantalla */
+  min-height: 100vh; 
 }
 
 .header {
@@ -96,7 +136,7 @@ nav a {
   font-family: 'Inter';
   font-style: normal;
   font-weight: normal;
-  font-size: 1.6vw; /* Tamaño de fuente ajustado */
+  font-size: 1.6vw; 
   line-height: 6vw;
 }
 
@@ -119,8 +159,7 @@ nav a.button:hover {
 }
 
 .router-view {
-  margin-top: 8vh; /* Asegúrate de que el contenido no se superponga al header */
+  margin-top: 8vh; 
   flex: 1; 
 }
-
 </style>
