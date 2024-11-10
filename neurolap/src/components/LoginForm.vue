@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { login } from '../services/auth';
+import {authWithPassword} from '../services/pocketbase';
 
 export default {
   data() {
@@ -31,12 +31,8 @@ export default {
   methods: {
     async handleLogin() {
       try {
-        const response = await login(this.email, this.password);
-        console.log('Login exitoso:', response.data);
-        console.log('registro: ', response.data.cu)
-        // Guardar el nombre del usuario en localStorage
-        localStorage.setItem('username', response.data.nombre);
-
+        const authData = await authWithPassword(this.email, this.password);
+        console.log(authData);
         // Redirigir a la página principal
         this.$router.push('/');
       } catch (error) {
