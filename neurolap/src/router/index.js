@@ -12,6 +12,8 @@ import ReportPage from '../components/ReportPage.vue';
 import EDMPage from '../components/EDMPage.vue';
 import RegistrationPage from '../components/RegistrationPage.vue';
 import TermsPage from '../components/TermsPage.vue';
+import PersonRegistrationPage from '../components/PersonRegistrationPage.vue';
+import PatientRegistrationPage from '../components/PatientRegistrationPage.vue';
 
 const routes = [
   { path: '/', component: HomePage /*meta: { requiresAuth: true }*/ },  // Página protegida
@@ -26,7 +28,9 @@ const routes = [
   { path: '/report', component: ReportPage },
   { path: '/edm', component: EDMPage },
   { path: '/registration', component: RegistrationPage },
-  { path: '/terms', component: TermsPage }
+  { path: '/terms', component: TermsPage },
+  { path: '/person-registration', component: PersonRegistrationPage },
+  { path: '/patient-registration', component: PatientRegistrationPage }
 ];
 
 const router = createRouter({

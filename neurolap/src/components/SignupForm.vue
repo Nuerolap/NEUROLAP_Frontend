@@ -63,7 +63,11 @@ export default {
           this.rol
         );
         console.log('Registro exitoso:', response);
-        this.$router.push('/'); // Redirige a la página principal
+        this.$router.push({
+          path: '/person-registration',
+          query: { id: response.id, role: this.rol }
+        })
+        //this.$router.push('/'); // Redirige a la página principal
       } catch (error) {
         this.errorMessage = 'Error al registrarse. Intenta de nuevo.';
         console.error('Error:', error);
