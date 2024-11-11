@@ -23,7 +23,7 @@
         <select v-model="rol" id="rol" required>
           <option value="" disabled>Selecciona un rol</option>
           <option value="paciente">Paciente</option>
-          <option value="familiar">Familiar</option>
+          <option value="familiar">Profesional</option>
         </select>
       </div>
       <button type="submit" class="btn">Registrarse</button>

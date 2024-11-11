@@ -42,7 +42,7 @@
                     </option>
                 </select>
             </div>
-            <div v-if="isFamiliar" class="form-group">
+            <!-- <div v-if="isFamiliar" class="form-group">
                 <label for="parentesco">Selecciona el Parentesco:</label>
                 <select v-model="tipoParentesco" id="parentesco" required>
                     <option value="Padre">Padre</option>
@@ -51,7 +51,7 @@
                     <option value="Hijo">Hijo</option>
                     <option value="Otro">Otro</option>
                 </select>
-            </div>
+            </div> -->
             <button type="submit" class="btn">Registrar Información</button>
         </form>
         <p class="error-message">{{ errorMessage }}</p>
@@ -108,7 +108,7 @@ export default {
                 );
                 if (this.isFamiliar) {
                     const familiar = await createRelative(persona.id);
-                    await createPatientRelativeRelationship(this.pacienteSeleccionado, familiar.id, this.tipoParentesco);
+                    await createPatientRelativeRelationship(this.pacienteSeleccionado, familiar.id, "Otro");
                     this.$router.push("/");
                 } else {
                     this.$router.push({
