@@ -37,15 +37,25 @@
     <div class="evaluation-section">
       <h2>EVALUACIÓN DIFERENCIAL DE LA MEMORIA </h2>
       <div class="button-container">
-        <router-link to="/registration" class="button">Iniciar</router-link>
+        <button class="button" @click="checkLogin">Iniciar</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import pb from '../services/pocketbase';
 export default {
   name: 'ServicePage',
+  methods: {
+    checkLogin() {
+      if (!pb.authStore.isValid) {
+        this.$router.push('/login');
+      }else{
+        this.$router.push('/evaluation');
+      }
+    } 
+  }
 }
 </script>
 

@@ -26,6 +26,12 @@
           <option value="familiar">Profesional</option>
         </select>
       </div>
+      <div class="form-group form-checkbox">
+        <input v-model="aceptarTerminos" type="checkbox" id="terminos" required />
+        <label for="terminos">
+          Estoy de acuerdo con los <router-link to="/terms">Términos y Política de privacidad</router-link>
+        </label>
+      </div>
       <button type="submit" class="btn">Registrarse</button>
     </form>
     <p class="error-message">{{ errorMessage }}</p>
@@ -43,6 +49,7 @@ export default {
       password: '',
       passwordConfirm: '',
       rol: '',
+      aceptarTerminos: false,
       errorMessage: ''
     };
   },
@@ -50,6 +57,11 @@ export default {
     async handleSignup() {
       if (this.password !== this.passwordConfirm) {
         this.errorMessage = 'Las contraseñas no coinciden.';
+        return;
+      }
+
+      if (!this.aceptarTerminos) {
+        this.errorMessage = 'Debes aceptar los términos y condiciones.';
         return;
       }
 
@@ -79,9 +91,9 @@ export default {
 
 <style scoped>
 .signup-container {
-  width: 40%;
+  width: 50%; /* Se incrementa el ancho del contenedor principal */
   margin: 4vw auto;
-  padding: 1vw 5vw;
+  padding: 2vw 5vw;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -89,20 +101,20 @@ export default {
 }
 
 .signup-container h2 {
-  font-size: 3.5vw;
+  font-size: 3vw; /* Se ajusta ligeramente el tamaño del título */
   color: #800000;
   text-align: center;
 }
 
 .form-group {
-  margin: 2vw 0;
+  margin: 1.5vw 0;
 }
 
 label {
   display: block;
-  margin-bottom: 1vw;
+  margin-bottom: 0.8vw;
   font-weight: bold;
-  font-size: 2vw;
+  font-size: 1.8vw; /* Tamaño de letra para etiquetas */
 }
 
 input,
@@ -111,7 +123,7 @@ select {
   padding: 1vw;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1.8vw;
+  font-size: 1.6vw; /* Se reduce ligeramente el tamaño de fuente */
   font-family: 'Inter';
   background-color: #fff;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -132,6 +144,27 @@ select {
   background-size: 1.5vw;
 }
 
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5vw;
+}
+
+.form-checkbox input {
+  width: 1.5vw; /* Tamaño del checkbox */
+  height: 1.5vw;
+  margin-right: 0.8vw; /* Espaciado entre el checkbox y el texto */
+}
+
+.form-checkbox label {
+  font-size: 1.5vw; /* Se reduce el tamaño de letra del texto */
+  line-height: 1.5; /* Mejora la alineación vertical */
+}
+
+.router-link {
+  font-size: 1.5vw; /* Asegura consistencia con el texto */
+}
+
 .btn {
   width: 100%;
   padding: 2vh;
@@ -140,7 +173,7 @@ select {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 2.5vw;
+  font-size: 2.2vw; /* Ajusta el tamaño del botón */
   margin-top: 2vw;
 }
 
@@ -153,5 +186,6 @@ select {
 .error-message {
   color: red;
   margin-top: 10px;
+  font-size: 1.5vw; /* Ajuste de tamaño para el mensaje de error */
 }
 </style>
