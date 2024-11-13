@@ -49,7 +49,7 @@
         </div>
         <div class="form-group">
           <label for="idioma_materno">Idioma Materno:</label>
-          <select v-model="idioma_materno" id="idioma_materno" required>
+          <select v-model="idioma_materno" id="idioma_materno" > <!-- required -->
             <option v-for="idioma in idiomasDisponibles" :key="idioma.id" :value="idioma.idioma">
               {{ idioma.idioma }}
             </option>
@@ -116,7 +116,7 @@
           <div v-for="(difficulty, index) in memoryDifficulties" :key="index" class="form-group">
             <select v-model="difficulty.tipo" required>
               <option value="Diagnosticada">Diagnosticada</option>
-              <option value="Observada">Observada</option>
+              <option value="Observada">Manifiesta</option>
             </select>
             <textarea v-model="difficulty.descripcion" placeholder="Descripción"></textarea>
             <button type="button" @click="removeMemoryDifficulty(index)" class="btn-danger">Eliminar</button>
@@ -125,7 +125,7 @@
   
         <!-- Enfermedades o Intervenciones -->
         <div class="form-group">
-          <h3>Enfermedades o Intervenciones</h3>
+          <h3>Enfermedades o Intervenciones Quirurgicas</h3>
           <button type="button" @click="addIntervention" class="btn">Agregar Enfermedad o Intervención</button>
           <div v-for="(intervention, index) in interventions" :key="index" class="form-group">
             <textarea v-model="intervention.descripcion" placeholder="Descripción"></textarea>

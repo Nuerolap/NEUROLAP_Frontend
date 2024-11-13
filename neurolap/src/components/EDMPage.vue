@@ -121,6 +121,15 @@
             </label>
           </div>
         </div>
+        <div class="section">
+          <h2>1-3 MEMORIA EPISÓDICA: ORIENTACIÓN - IDENTIFICACIÓN - PERSONA</h2>
+          <p>Explicar al paciente que debemos formalmente hacer preguntas que son muy fáciles. <strong>"A continuación le voy a hacer algunas preguntas, muchas de ellas parecen muy simples e inclusive bobas pero necesito hacerlas para tenerlas registradas así que usted por favor contésteme lo mejor que pueda para que el registro quede muy bien"</strong> (acompañe este texto con los gestos que correspondan para evitar que el paciente se enoje o se sienta insultado por el tipo de preguntas) (sobre 3 puntos)</p>
+          
+          <button @click="iniciarGrabacion" :disabled="grabando">Iniciar Grabación</button>
+          <button @click="detenerGrabacion" :disabled="!grabando">Detener Grabación</button>
+          <audio v-if="audioUrl" :src="audioUrl" controls></audio>
+        </div>
+        <div class="section"></div>
         <button type="submit" class="btn">Enviar</button>
       </form>
     </div>
@@ -162,6 +171,10 @@ export default {
         sabado: false,
         domingo: false
       },
+      grabando: false,
+      mediaRecorder: null,
+      audioChunks: [],
+      audioUrl: null,
       errorMessage: ''
     };
   },
@@ -180,6 +193,51 @@ export default {
       } catch (error) {
         this.errorMessage = 'Error al enviar los datos. Intenta de nuevo.';
       }
+    },    
+    async iniciarGrabacion() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        this.mediaRecorder = new MediaRecorder(stream);
+        
+        this.mediaRecorder.ondataavailable = (event) => {
+          this.audioChunks.push(event.data);
+        };
+
+        this.mediaRecorder.onstop = this.guardarAudio;
+        
+        this.audioChunks = [];
+        this.mediaRecorder.start();
+        this.grabando = true;
+        console.log("Grabación iniciada");
+      } catch (error) {
+        console.error("Error al acceder al micrófono:", error);
+      }
+    },
+    detenerGrabacion() {
+      if (this.mediaRecorder && this.grabando) {
+        this.mediaRecorder.stop();
+        this.grabando = false;
+        console.log("Grabación detenida");
+      }
+    },
+    guardarAudio() {
+      const audioBlob = new Blob(this.audioChunks, { type: 'audio/wav' });
+      const formData = new FormData();
+      formData.append("file", audioBlob, "grabacion.wav");
+
+      fetch("http://127.0.0.1:8000/api/upload-audio", {
+        method: "POST",
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log("Archivo de audio enviado exitosamente:", data);
+          this.audioUrl = URL.createObjectURL(audioBlob);
+          this.result = data; // Guardar la transcripción y resultados para mostrarlos en el frontend
+        })
+        .catch(error => {
+          console.error("Error al enviar el archivo de audio:", error);
+        });
     }
   }
 };

@@ -36,7 +36,7 @@
             </div>
             <div v-if="isFamiliar" class="form-group">
                 <label for="paciente">Selecciona el Paciente:</label>
-                <select v-model="pacienteSeleccionado" id="paciente" required>
+                <select v-model="pacienteSeleccionado" id="paciente" > <!-- required -->
                     <option v-for="paciente in pacientes" :value="paciente.id" :key="paciente.id">
                         {{ paciente.expand.persona.nombres }} {{ paciente.expand.persona.apellidos }}
                     </option>

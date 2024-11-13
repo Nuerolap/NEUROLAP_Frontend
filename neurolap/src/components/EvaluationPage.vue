@@ -41,7 +41,7 @@ export default {
       if (!pb.authStore.isValid) {
         this.$router.push('/login');
       }else{
-        this.$router.push('/evaluation');
+        this.$router.push('/patient-registration');
       }
     } 
   }

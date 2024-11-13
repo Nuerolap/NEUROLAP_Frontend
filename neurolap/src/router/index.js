@@ -14,6 +14,7 @@ import RegistrationPage from '../components/RegistrationPage.vue';
 import TermsPage from '../components/TermsPage.vue';
 import PersonRegistrationPage from '../components/PersonRegistrationPage.vue';
 import PatientRegistrationPage from '../components/PatientRegistrationPage.vue';
+import AudioRecorder from '../components/AudioRecorder.vue';
 
 const routes = [
   { path: '/', component: HomePage /*meta: { requiresAuth: true }*/ },  // Página protegida
@@ -30,7 +31,8 @@ const routes = [
   { path: '/registration', component: RegistrationPage },
   { path: '/terms', component: TermsPage },
   { path: '/person-registration', component: PersonRegistrationPage },
-  { path: '/patient-registration', component: PatientRegistrationPage }
+  { path: '/patient-registration', component: PatientRegistrationPage },
+  { path: '/audio', component: AudioRecorder }
 ];
 
 const router = createRouter({
