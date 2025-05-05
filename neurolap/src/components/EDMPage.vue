@@ -5,243 +5,249 @@
     </div>
     <div class="underline"></div>
     <div class="text">
-      <p>En este portal, usted encontrará un protocolo que mide el estado de los distintos tipos de memoria, por lo que recibe el nombre de “Evaluación Diferencial de la Memoria”. Este instrumento consta de 34 ítems seleccionados de 14 test de memoria, estandarizados de habla hispana.</p>
+      <p>
+        En este portal, usted encontrará un protocolo que mide el estado de los distintos tipos de memoria, por
+        lo que recibe el nombre de “Evaluación Diferencial de la Memoria”. Este instrumento consta de 34 ítems
+        seleccionados de 14 test de memoria, estandarizados de habla hispana.
+      </p>
     </div>
     <div class="content">
       <form @submit.prevent="handleSubmit">
-        <div class="section">
-          <h2>1-3 MEMORIA EPISÓDICA: ORIENTACIÓN - IDENTIFICACIÓN - PERSONA</h2>
-          <p>Explicar al paciente que debemos formalmente hacer preguntas que son muy fáciles. <strong>"A continuación le voy a hacer algunas preguntas, muchas de ellas parecen muy simples e inclusive bobas pero necesito hacerlas para tenerlas registradas así que usted por favor contésteme lo mejor que pueda para que el registro quede muy bien"</strong> (acompañe este texto con los gestos que correspondan para evitar que el paciente se enoje o se sienta insultado por el tipo de preguntas) (sobre 3 puntos)</p>
-          <div class="form-group">
-            <label for="episodica1_1">1. ¿CUÁL ES SU NOMBRE?</label>
-            <input v-model="episodica1.nombre" type="text" id="episodica1_1" required />
+        <div v-for="question in questions" :key="question.id" class="section">
+          <h2>{{ question.orden }} - {{ question.pregunta }}</h2>
+          <p v-if="question.instrucciones" v-html="question.instrucciones"></p>
+
+          <!-- File upload -->
+          <div v-if="isFileUpload(question)" class="form-group">
+            <label :for="`file-${question.id}`">Subir archivo</label>
+            <input type="file" :id="`file-${question.id}`" @change="handleFileChange($event, question.id)" required />
           </div>
-          <div class="form-group">
-            <label for="episodica1_2">2. ¿CUÁL ES SU APELLIDO?</label>
-            <input v-model="episodica1.apellido" type="text" id="episodica1_2" required />
+
+          <!-- Sí/No -->
+          <div v-else-if="isObject(question.opciones) && isBinary(question.opciones)" class="form-group">
+            <label>{{ question.pregunta }}</label>
+            <label>
+              <input type="radio" :name="`q-${question.id}`" value="Sí" v-model="answers[question.id]" required /> Sí
+            </label>
+            <label>
+              <input type="radio" :name="`q-${question.id}`" value="No" v-model="answers[question.id]" /> No
+            </label>
           </div>
-          <div class="form-group">
-            <label for="episodica1_3">3. ¿QUÉ EDAD TIENE?</label>
-            <input v-model="episodica1.edad" type="text" id="episodica1_3" required />
+
+          <!-- Campos JSON -->
+          <div v-else-if="isObject(question.opciones)" class="form-group">
+            <div v-for="(val, label) in question.opciones" :key="label">
+              <label :for="`q-${question.id}-${slugify(label)}`">{{ label }}</label>
+              <input v-model="answers[question.id][label]" type="text" :id="`q-${question.id}-${slugify(label)}`"
+                required />
+            </div>
+          </div>
+
+          <!-- Array de campos -->
+          <div v-else-if="Array.isArray(question.opciones)" class="form-group">
+            <div v-for="(opt, idx) in question.opciones" :key="idx">
+              <label :for="`q-${question.id}-${idx}`">{{ opt }}</label>
+              <input v-model="answers[question.id][idx]" type="text" :id="`q-${question.id}-${idx}`" required />
+            </div>
+          </div>
+
+          <!-- Campo único -->
+          <div v-else class="form-group">
+            <label :for="`q-${question.id}`">Respuesta</label>
+            <input v-model="answers[question.id]" type="text" :id="`q-${question.id}`" required />
           </div>
         </div>
-        <div class="section">
-          <h2>2-2 MEMORIA EPISÓDICA: ORIENTACIÓN - ORIENTACIÓN - ESPACIO</h2>
-          <p><strong>"Bien, ahora continuamos con más preguntas. Empezamos"</strong> (sobre 5 puntos)</p>
-          <div class="form-group">
-            <label for="episodica2_1">1. ¿EN QUÉ LUGAR ESTAMOS?</label>
-            <input v-model="episodica2.lugar" type="text" id="episodica2_1" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica2_2">2. ¿EN QUÉ PISO?</label>
-            <input v-model="episodica2.piso" type="text" id="episodica2_2" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica2_3">3. ¿NOMBRE DE LA CALLE?</label>
-            <input v-model="episodica2.calle" type="text" id="episodica2_3" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica2_4">4. ¿EN QUÉ DEPARTAMENTO/PROVINCIA/CIUDAD?</label>
-            <input v-model="episodica2.departamento" type="text" id="episodica2_4" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica2_5">5. ¿EN QUÉ PAÍS?</label>
-            <input v-model="episodica2.pais" type="text" id="episodica2_5" required />
-          </div>
-        </div>
-        <div class="section">
-          <h2>3-4 MEMORIA EPISÓDICA: ORIENTACIÓN - IDENTIFICACIÓN - REMOTA</h2>
-          <p><strong>"Seguimos con unas preguntas más"</strong> (sobre 7 puntos)</p>
-          <div class="form-group">
-            <label for="episodica3_1">1. ¿EN QUÉ FECHA ES NAVIDAD?</label>
-            <input v-model="episodica3.navidad" type="text" id="episodica3_1" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica3_2">2. ¿QUÉ SE FESTEJA EL 06 DE AGOSTO?</label>
-            <input v-model="episodica3.agosto6" type="text" id="episodica3_2" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica3_3">3. ¿CUÁNTOS DÍAS TIENE ENERO?</label>
-            <input v-model="episodica3.enero" type="text" id="episodica3_3" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica3_4">4. ¿QUÉ SE FESTEJA EL 24 DE SEPTIEMBRE?</label>
-            <input v-model="episodica3.septiembre24" type="text" id="episodica3_4" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica3_5">5. ¿CUÁLES SON LOS COLORES DE LA BANDERA BOLIVIANA?</label>
-            <input v-model="episodica3.bandera" type="text" id="episodica3_5" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica3_6">6. ¿CUÁNTOS DEPARTAMENTOS TIENE BOLIVIA?</label>
-            <input v-model="episodica3.departamentos" type="text" id="episodica3_6" required />
-          </div>
-          <div class="form-group">
-            <label for="episodica3_7">7. ¿QUIÉN FUE SIMÓN BOLIVAR?</label>
-            <input v-model="episodica3.simonBolivar" type="text" id="episodica3_7" required />
-          </div>
-        </div>
-        <div class="section">
-          <h2>4-5 MEMORIA OPERATIVA: ATENCIÓN - CÁLC. Y SEGUIM. - PROGRESIÓN</h2>
-          <p>El examinador pide que el paciente nombre los días de la semana en orden progresivo; se anumal la instrucción cuando el sujeto demora por buscar algún tipo de ayuda (repite desde el principio más de dos veces).</p>
-          <p><strong>"Nombre los días de la semana, del primero que es hábil al último"</strong> (sobre 7 puntos)</p>
-          <div class="form-group">
-            <label>
-              <input type="checkbox" v-model="operativa4.lunes"> Lunes
-            </label>
-          </div>
-          <div class="form-group">
-            <label>
-              <input type="checkbox" v-model="operativa4.martes"> Martes
-            </label>
-          </div>
-          <div class="form-group">
-            <label>
-              <input type="checkbox" v-model="operativa4.miercoles"> Miércoles
-            </label>
-          </div>
-          <div class="form-group">
-            <label>
-              <input type="checkbox" v-model="operativa4.jueves"> Jueves
-            </label>
-          </div>
-          <div class="form-group">
-            <label>
-              <input type="checkbox" v-model="operativa4.viernes"> Viernes
-            </label>
-          </div>
-          <div class="form-group">
-            <label>
-              <input type="checkbox" v-model="operativa4.sabado"> Sábado
-            </label>
-          </div>
-          <div class="form-group">
-            <label>
-              <input type="checkbox" v-model="operativa4.domingo"> Domingo
-            </label>
-          </div>
-        </div>
-        <div class="section">
-          <h2>1-3 MEMORIA EPISÓDICA: ORIENTACIÓN - IDENTIFICACIÓN - PERSONA</h2>
-          <p>Explicar al paciente que debemos formalmente hacer preguntas que son muy fáciles. <strong>"A continuación le voy a hacer algunas preguntas, muchas de ellas parecen muy simples e inclusive bobas pero necesito hacerlas para tenerlas registradas así que usted por favor contésteme lo mejor que pueda para que el registro quede muy bien"</strong> (acompañe este texto con los gestos que correspondan para evitar que el paciente se enoje o se sienta insultado por el tipo de preguntas) (sobre 3 puntos)</p>
-          
-          <button @click="iniciarGrabacion" :disabled="grabando">Iniciar Grabación</button>
-          <button @click="detenerGrabacion" :disabled="!grabando">Detener Grabación</button>
-          <audio v-if="audioUrl" :src="audioUrl" controls></audio>
-        </div>
-        <div class="section"></div>
-        <button type="submit" class="btn">Enviar</button>
+
+        <button type="submit" class="btn" :disabled="submitting">
+          {{ submitting ? 'Enviando...' : 'Enviar' }}
+        </button>
       </form>
+      <p class="error-message" v-if="errorMessage">{{ errorMessage }}</p>
     </div>
-    <p class="error-message">{{ errorMessage }}</p>
   </div>
 </template>
 
 <script>
+import pb from '@/services/pocketbase'
+import Cookies from 'js-cookie'
+import axios from 'axios'
+
 export default {
   data() {
     return {
-      episodica1: {
-        nombre: '',
-        apellido: '',
-        edad: ''
-      },
-      episodica2: {
-        lugar: '',
-        piso: '',
-        calle: '',
-        departamento: '',
-        pais: ''
-      },
-      episodica3: {
-        navidad: '',
-        agosto6: '',
-        enero: '',
-        septiembre24: '',
-        bandera: '',
-        departamentos: '',
-        simonBolivar: ''
-      },
-      operativa4: {
-        lunes: false,
-        martes: false,
-        miercoles: false,
-        jueves: false,
-        viernes: false,
-        sabado: false,
-        domingo: false
-      },
-      grabando: false,
-      mediaRecorder: null,
-      audioChunks: [],
-      audioUrl: null,
+      questions: [],
+      answers: {},
+      resultadoId: null,
+      submitting: false,
       errorMessage: ''
-    };
+    }
+  },
+  async created() {
+    try {
+      const testId     = '9m6r769tgnckrj1'
+      const pacienteId = Cookies.get('pacienteId')
+      const today      = new Date().toISOString().split('T')[0]
+
+      // 1) Crear resultado_test inicial
+      const rt = await pb.collection('resultado_test').create({
+        fecha_realizacion: today,
+        puntuacion_total:   0,
+        interpretacion:    '',
+        comentario:        '',
+        test:              testId,
+        paciente:          pacienteId
+      })
+      this.resultadoId = rt.id
+
+      // 2) Cargar todas las preguntas
+      const resp = await axios.get(
+        'http://localhost:8090/api/collections/pregunta/records',
+        { params: { filter: `test="${testId}"`, sort: 'orden', perPage: 50 } }
+      )
+      this.questions = resp.data.items.map(q => ({ ...q, opciones: q.opciones || [] }))
+
+      // 3) Inicializar `answers` según tipo de pregunta
+      this.questions.forEach(q => {
+        if (this.isFileUpload(q)) {
+          this.answers[q.id] = null
+        } else if (this.isObject(q.opciones)) {
+          // JSON-based (incluye binarias)
+          this.answers[q.id] = this.isBinary(q.opciones) ? null : {}
+          if (!this.isBinary(q.opciones)) {
+            Object.keys(q.opciones).forEach(k => {
+              this.answers[q.id][k] = ''
+            })
+          }
+        } else if (Array.isArray(q.opciones)) {
+          this.answers[q.id] = q.opciones.map(() => '')
+        } else {
+          // fallback texto simple
+          this.answers[q.id] = ''
+        }
+      })
+    } catch (err) {
+      console.error(err)
+      this.errorMessage = 'Error inicializando la evaluación.'
+    }
   },
   methods: {
+    isObject(v) { return v && v.constructor === Object },
+    isBinary(opts) {
+      const keys = Object.keys(opts)
+      return keys.length === 2 && keys.includes('Cumplió') && keys.includes('No cumplió')
+    },
+    slugify(s) {
+      return s.toString().toLowerCase()
+               .replace(/\s+/g, '-')
+               .replace(/[^\w-]+/g, '')
+    },
+    isFileUpload(q) {
+      const txt = (q.pregunta || '').toLowerCase()
+      return /dibujo|lámina|golpe|audio|numeral|visoespacial/.test(txt)
+    },
+    handleFileChange(ev, qid) {
+      this.answers[qid] = ev.target.files[0]
+    },
     async handleSubmit() {
-      try {
-        // Aquí podrías añadir la lógica para enviar los datos a tu servidor
-      console.log('Formulario enviado:', {
-        episodica1: this.episodica1,
-        episodica2: this.episodica2,
-        episodica3: this.episodica3,
-        operativa4: this.operativa4
-      });
-        // Suponiendo que los datos se envían correctamente, redirigir a /report
-        this.$router.push('/report');
-      } catch (error) {
-        this.errorMessage = 'Error al enviar los datos. Intenta de nuevo.';
-      }
-    },    
-    async iniciarGrabacion() {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        this.mediaRecorder = new MediaRecorder(stream);
-        
-        this.mediaRecorder.ondataavailable = (event) => {
-          this.audioChunks.push(event.data);
-        };
+      this.submitting = true
+      this.errorMessage = ''
 
-        this.mediaRecorder.onstop = this.guardarAudio;
-        
-        this.audioChunks = [];
-        this.mediaRecorder.start();
-        this.grabando = true;
-        console.log("Grabación iniciada");
-      } catch (error) {
-        console.error("Error al acceder al micrófono:", error);
-      }
-    },
-    detenerGrabacion() {
-      if (this.mediaRecorder && this.grabando) {
-        this.mediaRecorder.stop();
-        this.grabando = false;
-        console.log("Grabación detenida");
-      }
-    },
-    guardarAudio() {
-      const audioBlob = new Blob(this.audioChunks, { type: 'audio/wav' });
-      const formData = new FormData();
-      formData.append("file", audioBlob, "grabacion.wav");
+      const testId     = '9m6r769tgnckrj1'
+      const pacienteId = Cookies.get('pacienteId')
 
-      fetch("http://127.0.0.1:8000/api/upload-audio", {
-        method: "POST",
-        body: formData,
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log("Archivo de audio enviado exitosamente:", data);
-          this.audioUrl = URL.createObjectURL(audioBlob);
-          this.result = data; // Guardar la transcripción y resultados para mostrarlos en el frontend
-        })
-        .catch(error => {
-          console.error("Error al enviar el archivo de audio:", error);
-        });
+      try {
+        // 4) Guardar cada respuesta en PocketBase (simulando puntuación máxima)
+        for (const q of this.questions) {
+          let payload, score
+
+          if (this.isFileUpload(q)) {
+            const isAudio = /audio|golpe/.test(q.pregunta.toLowerCase())
+            if (isAudio) {
+              payload = { transcripcion:'simulada', resultado:{ animales:'verde', palabras_f:'verde', estado:'verde' } }
+              score   = 10
+            } else {
+              payload = { ssim_index:1, puntaje:36 }
+              score   = 36
+            }
+          } else if (this.isObject(q.opciones) && this.isBinary(q.opciones)) {
+            // pregunta binaria
+            payload = { respuesta: this.answers[q.id] }
+            score   = 1
+          } else if (this.isObject(q.opciones)) {
+            // campos JSON con múltiples subpreguntas
+            payload = this.answers[q.id]
+            score   = Object.keys(this.answers[q.id]).length
+          } else if (Array.isArray(q.opciones)) {
+            // array de campos
+            payload = this.answers[q.id]
+            score   = this.answers[q.id].length
+          } else {
+            // texto simple
+            payload = { respuesta: this.answers[q.id] }
+            score   = 1
+          }
+
+          await pb.collection('respuesta').create({
+            respuesta:      JSON.stringify(payload),
+            pregunta:       q.id,
+            resultado_test: this.resultadoId,
+            calificacion:   score
+          })
+        }
+
+        // 5) Recalcular total acumulado
+        await axios.post(
+          `http://localhost:8000/resultado_test/${this.resultadoId}/recalcular_total`
+        )
+
+        // 6) Validar cada pregunta con los endpoints de Pydantic
+        for (const q of this.questions) {
+          const isPersonal = q.orden <= 2
+          const url = isPersonal
+            ? 'http://localhost:8000/responder_personales'
+            : 'http://localhost:8000/responder'
+
+          // reconstruir payload de validación igual que en creación
+          let respuestasParaEnviar
+          if (this.isFileUpload(q)) {
+            const isAudio = /audio|golpe/.test(q.pregunta.toLowerCase())
+            respuestasParaEnviar = isAudio
+              ? { transcripcion:'simulada', resultado:{ animales:'verde', palabras_f:'verde', estado:'verde' } }
+              : { ssim_index:1, puntaje:36 }
+          } else if (this.isObject(q.opciones) && this.isBinary(q.opciones)) {
+            respuestasParaEnviar = { respuesta: this.answers[q.id] }
+          } else if (this.isObject(q.opciones) || Array.isArray(q.opciones)) {
+            respuestasParaEnviar = this.answers[q.id]
+          } else {
+            respuestasParaEnviar = { respuesta: this.answers[q.id] }
+          }
+
+          const body = {
+            id_test:     testId,
+            id_segmento: q.id,
+            respuestas:  respuestasParaEnviar
+          }
+          if (isPersonal) {
+            body.id_paciente = pacienteId
+          }
+
+          await axios.post(url, body)
+        }
+
+        // 7) Redirigir al reporte
+        this.$router.push('/report')
+
+      } catch (e) {
+        console.error(e)
+        this.errorMessage = 'Error al enviar respuestas.'
+      } finally {
+        this.submitting = false
+      }
     }
   }
-};
+}
 </script>
+
 
 <style scoped>
 /* General Styles */
@@ -322,9 +328,12 @@ input[type="text"] {
   flex: 1;
 }
 
-input[type="checkbox"] {
-  margin-right: 1vw;
-  margin-bottom: -1vw;
+input[type="file"] {
+  font-size: 1.3vw;
+}
+
+input[type="radio"] {
+  margin-right: 0.5vw;
 }
 
 .btn {
